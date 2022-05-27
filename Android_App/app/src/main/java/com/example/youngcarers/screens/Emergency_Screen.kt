@@ -12,18 +12,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Screen2() {
+fun Emergency_Screen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(Color.LightGray)
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "Screen 2",
+            text = "Emergency View",
             fontWeight = FontWeight.Bold,
             color = Color.Black,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -32,3 +33,11 @@ fun Screen2() {
         )
     }
 }
+
+
+@Preview(showBackground = true)
+@Composable
+fun EmergencyScreenPreview() {
+    Emergency_Screen()
+}
+

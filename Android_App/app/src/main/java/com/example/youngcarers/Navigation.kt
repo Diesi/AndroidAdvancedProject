@@ -7,18 +7,18 @@ import androidx.navigation.compose.composable
 
 @Composable
 fun Navigation(navController: NavHostController) {
-    NavHost(navController, startDestination = Screen.Home.route) {
-        composable(Screen.Home.route) {
-            HomeScreen()
+    NavHost(navController, startDestination = NavigationItem.Help.route) {
+        composable(NavigationItem.Help.route) {
+            Help_Screen()
         }
-        composable(Screen.Screen1.route) {
-            Screen1()
+        composable(NavigationItem.ABC.route) {
+            ABC_Screen()
         }
-        composable(Screen.Screen2.route) {
-            Screen2()
+        composable(NavigationItem.Emergency.route) {
+            Emergency_Screen()
         }
-        composable(Screen.Screen3.route) {
-            Screen3()
+        composable(NavigationItem.About.route) {
+            About_Screen()
         }
     }
 }

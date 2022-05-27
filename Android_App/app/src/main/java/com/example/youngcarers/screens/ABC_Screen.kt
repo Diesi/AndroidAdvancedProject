@@ -12,18 +12,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Screen3() {
+fun ABC_Screen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(Color.LightGray)
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "Screen 3",
+            text = "ABC View",
             fontWeight = FontWeight.Bold,
             color = Color.Black,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -31,4 +32,10 @@ fun Screen3() {
             fontSize = 25.sp
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ABCScreenPreview() {
+    ABC_Screen()
 }
