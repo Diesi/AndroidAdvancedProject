@@ -3,18 +3,16 @@ package com.example.youngcarers
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
-import androidx.compose.material.R
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.youngcarers.ui.theme.colorBackground
+import com.example.youngcarers.ui.theme.*
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {
@@ -26,8 +24,8 @@ fun BottomNavigationBar(navController: NavHostController) {
     )
 
     BottomNavigation(
-        backgroundColor = Color.Gray,
-        contentColor = Color.White
+        backgroundColor = colorGrayToolbar,
+        contentColor = Color.White,
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
@@ -36,7 +34,7 @@ fun BottomNavigationBar(navController: NavHostController) {
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = screen.icon), contentDescription = screen.title) },
                 label = { Text(text = screen.title) },
-                selectedContentColor =  colorResource(com.example.youngcarers.R.color.yc_red_dark),
+                selectedContentColor =  colorDarkRed,//colorResource(com.example.youngcarers.R.color.yc_red_dark),
                 unselectedContentColor = Color.DarkGray.copy(0.4f),
                 alwaysShowLabel = true,
                 selected = currentRoute == screen.route,
