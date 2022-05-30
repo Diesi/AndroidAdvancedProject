@@ -1,17 +1,14 @@
 package com.example.youngcarers
 
+import android.content.Intent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,15 +16,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import com.example.youngcarers.core.*
+import com.example.youngcarers.screens.Detail_Screen
 import com.example.youngcarers.ui.theme.*
+import java.util.*
+
 
 @Composable
 fun Help_Screen(helpList: List<Help>) {
@@ -105,6 +106,7 @@ fun HelpScreenPreview() {
 @Composable
 fun HelpCard(header: String, description: String, image: Int) {
     val text = remember { mutableStateOf("") }
+    val mContext = LocalContext.current
     Card(
         modifier = Modifier
             // The space between each card and the other
@@ -113,7 +115,7 @@ fun HelpCard(header: String, description: String, image: Int) {
             .wrapContentHeight()
             .clip(RoundedCornerShape(15.dp)),
         onClick = {
-            text.value = "clicked."
+
         },
         shape = MaterialTheme.shapes.medium,
         elevation = 5.dp,
