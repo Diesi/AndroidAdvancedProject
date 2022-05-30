@@ -4,10 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
@@ -25,6 +22,7 @@ import com.example.youngcarers.core.*
 import com.example.youngcarers.ui.theme.*
 
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ABC_Screen(abcList: List<ABC>) {
     val text = remember { mutableStateOf("") }
@@ -62,7 +60,10 @@ fun ABC_Screen(abcList: List<ABC>) {
                 Card(
                     //shape = RoundedCornerShape(4.dp),
                     backgroundColor = Color.White,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        text.value = "clicked."
+                    }
                 ) {
                     Row(
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -70,7 +71,7 @@ fun ABC_Screen(abcList: List<ABC>) {
                             .fillMaxWidth()
                         //.padding(16.dp)
 
-                    ){
+                    ) {
                         Text(
                             abc.path, style = TextStyle(
                                 color = Color.Black,
@@ -101,6 +102,7 @@ fun ABC_Screen(abcList: List<ABC>) {
         }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun ABCScreenPreview() {

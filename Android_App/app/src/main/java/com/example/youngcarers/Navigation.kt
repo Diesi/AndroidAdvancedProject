@@ -5,12 +5,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.youngcarers.core.getABCList
+import com.example.youngcarers.core.getHelpList
+import com.example.youngcarers.core.helps
 
 @Composable
 fun Navigation(navController: NavHostController) {
     NavHost(navController, startDestination = NavigationItem.Help.route) {
         composable(NavigationItem.Help.route) {
-            Help_Screen()
+            Help_Screen(helps)
         }
         composable(NavigationItem.ABC.route) {
             ABC_Screen(getABCList())
