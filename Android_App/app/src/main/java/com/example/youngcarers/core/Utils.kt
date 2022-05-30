@@ -9,10 +9,11 @@ import androidx.compose.ui.graphics.Color
 data class ABC(
     val path: String,
 )
-
-data class Amenity(
-    val name: String,
-    val iconUrl: String
+data class Help(
+    val id: Int,
+    val header: String,
+    val description: String,
+    val imageRes : Int
 )
 
 // Methods
@@ -33,31 +34,38 @@ fun getABCList() = listOf(
     ABC("Finanzielles")
 )
 
-fun getSuperheroList() = listOf(
-    ABC("LOL")
+fun getHelpList() = listOf(
+    Help(1,head1, body1, 1),
+    Help(2,head2, body2,2),
+    Help(3,head3, body3,3)
+
 )
 
-fun getAmenityList() = listOf(
-    Amenity("Elevator", ""),
-    Amenity("Washer/Dryer", ""),
-    Amenity("Wheelchair Access", ""),
-    Amenity("Dogs Ok", ""),
-    Amenity("Smoke Detector", ""),
-    Amenity("Wifi", ""),
-    Amenity("Television", ""),
-    Amenity("Coffee Maker", ""),
-    Amenity("Hair Dryer", ""),
-    Amenity("Iron", "")
-)
 
-fun hideKeyboard(context: Context) {
-    val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-}
+
 
 
 // Constants
 
+// Help View
+
+const val helpHeaderTxt = "Hallo!"
+const val helpBodyTxt = "Hier bist du auf der Young Carers App gelandet. Vielleicht hast du ja eine der folgenden Fragen oder du erlebst auch gerade eine dieser Situationen?"
+const val head1 = "Für alle Fälle - Hilfe und Notrufe"
+const val body1 = "Hier sind alle wichtigen Telefonnummern zu Notruf Hotlines, Vergiftungsinformationszentrale, ..."
+const val head2 = "Dir ist alles zu viel?"
+const val body2 = "Manchmal kann es einem so vorkommen, als wäre einfach alles viel zu viel, hier siehst du, dass du nicht alleine bist und was du tun kannst, bzw. wer für dich da ist."
+const val head3 = "Hände waschen - ein Kinderspiel"
+const val body3 = "Mit diesen Tipps und Tricks erfährst du, wie deine Hände richtig sauber werden"
+
+const val helpBodyBottom = "Du hast nicht gefunden wonach du gesucht hast, vielleicht wirst du im Young Carers ABC fündig?"
+
+val helps = listOf(
+    Help(1,head1, body1, 1),
+    Help(2,head2, body2,2),
+    Help(3,head3, body3,3)
+
+)
 
 // ABC View
 const val abcHeaderTxt = "Young Carers ABC"
