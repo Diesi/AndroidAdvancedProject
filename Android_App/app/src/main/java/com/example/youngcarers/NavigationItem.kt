@@ -11,3 +11,11 @@ sealed class NavigationItem(
     object About : NavigationItem("about", R.drawable.ic_about_toolbar_gray, "Über")
 
 }
+
+sealed class NavRoutes(val route: String) {
+    object Help : NavRoutes("help_route")
+    object ABC : NavRoutes("abc_route")
+    object Emergency : NavRoutes("emergency_route")
+    object About : NavRoutes("about_route")
+    object Detail : NavRoutes("detail_route")
+}

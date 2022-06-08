@@ -16,6 +16,13 @@ data class Help(
     val imageRes : Int
 )
 
+data class Detail(
+    val id: Int,
+    val header: String,
+    val description: String,
+    val imageRes : Int
+)
+
 // Methods
 fun getABCList() = listOf(
     ABC("24-Stunden Betreuung"),
@@ -39,6 +46,10 @@ fun getHelpList() = listOf(
     Help(2,head2, body2,2),
     Help(3,head3, body3,3)
 
+)
+
+fun getDetailPage() = lazyOf(
+    Detail(1,head1, body1, 1)
 )
 
 
@@ -66,6 +77,9 @@ val helps = listOf(
     Help(3,head3, body3,3)
 
 )
+
+val detail = Detail(1,head1, body1, 1)
+
 
 // ABC View
 const val abcHeaderTxt = "Young Carers ABC"

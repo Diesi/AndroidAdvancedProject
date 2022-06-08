@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavHostController
 import com.example.youngcarers.core.*
 import com.example.youngcarers.screens.Detail_Screen
 import com.example.youngcarers.ui.theme.*
@@ -31,7 +32,7 @@ import java.util.*
 
 
 @Composable
-fun Help_Screen(helpList: List<Help>) {
+fun Help_Screen(helpList: List<Help>,navController: NavHostController) {
 
     Scaffold(
         backgroundColor = colorBackground,
@@ -64,7 +65,7 @@ fun Help_Screen(helpList: List<Help>) {
 
             }
             items(helpList) { help ->
-                HelpCard(help.header, help.description, help.imageRes)
+                HelpCard(help.header, help.description, help.imageRes, navController)
             }
 
             item {
@@ -93,7 +94,7 @@ fun Help_Screen(helpList: List<Help>) {
         }
     }
 }
-
+/*
 @Preview(showBackground = true)
 @Composable
 fun HelpScreenPreview() {
@@ -101,10 +102,10 @@ fun HelpScreenPreview() {
         getHelpList()
     )
 }
-
+*/
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun HelpCard(header: String, description: String, image: Int) {
+fun HelpCard(header: String, description: String, image: Int, navController: NavHostController) {
     val text = remember { mutableStateOf("") }
     val mContext = LocalContext.current
     Card(
@@ -115,7 +116,7 @@ fun HelpCard(header: String, description: String, image: Int) {
             .wrapContentHeight()
             .clip(RoundedCornerShape(15.dp)),
         onClick = {
-
+           navController.navigate(NavRoutes.Detail.route)
         },
         shape = MaterialTheme.shapes.medium,
         elevation = 5.dp,
@@ -163,7 +164,7 @@ fun HelpCard(header: String, description: String, image: Int) {
     }
 
 }
-
+/*
 //@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true, name = "Light mode")
 //@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, name = "Dark mode")
 @Preview(showBackground = true)
@@ -189,3 +190,5 @@ fun HelpCard2Preview() {
         HelpCard(helps[2].header, helps[2].description, helps[2].imageRes)
     }
 }
+
+ */
