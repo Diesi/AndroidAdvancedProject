@@ -98,4 +98,72 @@ const val aboutBodyDatenTxt = "Der Blindtextgenerator ist ein wahrer Blindtextk�
         "Beispiel: Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben. Eines Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik. Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rethorische Frage über die Wange, dann setzte es seinen Weg fort. Unterwegs traf es eine Copy. Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie …"
 
 
+//Emergency
+data class Emergency(
+    val id: Int,
+    val header: String,
+    val description: String,
+    val imageRes : Int
+)
+data class Tel(
+    val header: String
+)
+
+fun getEmergencyList() = listOf(
+    Emergency(1,emghead1, emgbody1, 1),
+    Emergency(2,emghead2, emgbody2,2),
+    Emergency(3,emghead3, emgbody3,3)
+
+)
+const val emghead1 = "Für alle Fälle - Hilfe und Notrufe"
+const val emgbody1 = "Hier sind alle wichtigen Telefonnummern zu Notruf Hotlines, Vergiftungsinformationszentrale, ..."
+const val emghead2 = "Wie funktioniert ein Notruf?"
+const val emgbody2 = "Hier wird es dir erklärt"
+const val emghead3 = "1x1 der Ersten Hilfe"
+const val emgbody3 = "Informationen über richtiges Handel, bei einem Notfall"
+
+
+
+val emergency = listOf(
+    Emergency(1,emghead1, emgbody1, 1),
+    Emergency(2,emghead2, emgbody2,2),
+    Emergency(3,emghead3, emgbody3,3)
+
+)
+const val emgHeaderTxt = "Im Notfall"
+const val emgbodyTxt = "Hier findest du die wichtigstn Dinge bei einem Notfall."
+const val emgNotfallTxt = "Wenns mal wirklich schnell gehen muss:"
+const val emgVorb = "Zur Vorbereitung"
+const val emgRettung = "144 - Rettung"
+const val emgPolice = "133 - Polizei"
+const val emgFire = "122 - Feuerwehr"
+const val emgEuro = "112 - Euronotruf"
+const val emgBerg = "140 - Bergrettung"
+const val emgGehör = "0800 133 133 - Notruf für Gehörlose"
+const val emgRatAufDraht = "147 - Rat auf Draht"
+const val emgSeelsorge = "142 - Telefonseelsorge"
+const val  emgNotdienst = "141 - Ärztenotdienst"
+
+fun getTelList() = listOf(
+    Tel(emgRettung),
+    Tel(emgPolice),
+    Tel(emgFire),
+    Tel(emgEuro),
+    Tel(emgRatAufDraht),
+    Tel(emgSeelsorge),
+    Tel(emgNotdienst),
+    Tel(emgBerg)
+)
+
+
+val tel = listOf(
+    Tel(emgRettung),
+    Tel(emgPolice),
+    Tel(emgFire),
+    Tel(emgEuro),
+    Tel(emgRatAufDraht),
+    Tel(emgSeelsorge),
+    Tel(emgNotdienst),
+    Tel(emgBerg)
+)
 
