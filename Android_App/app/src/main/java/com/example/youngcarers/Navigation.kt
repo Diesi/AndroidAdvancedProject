@@ -19,7 +19,7 @@ fun Navigation(navController: NavHostController) {
             Help_Screen(helps, navController)
         }
         composable(NavigationItem.ABC.route) {
-            ABC_Screen(getABCList())
+            ABC_Screen(getABCList(),navController)
         }
         composable(NavigationItem.Emergency.route) {
             Emergency_Screen()

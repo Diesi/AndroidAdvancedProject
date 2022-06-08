@@ -12,10 +12,10 @@ sealed class NavigationItem(
 
 }
 
-sealed class NavRoutes(val route: String) {
-    object Help : NavRoutes("help_route")
-    object ABC : NavRoutes("abc_route")
-    object Emergency : NavRoutes("emergency_route")
-    object About : NavRoutes("about_route")
-    object Detail : NavRoutes("detail_route")
+sealed class NavRoutes(
+    var route: String,
+    var title: String)
+{
+
+    object Detail : NavRoutes("detail_route","detail")
 }

@@ -38,6 +38,7 @@ fun Detail_Screen(navController: NavHostController) {
             TopAppBar(
                 title = {
                         //*Error without txt ?*//
+                        ""
                 },
             navigationIcon = {
                 IconButton(onClick = {

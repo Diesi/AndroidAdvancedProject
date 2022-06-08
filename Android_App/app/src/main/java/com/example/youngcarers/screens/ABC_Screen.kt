@@ -12,19 +12,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.youngcarers.core.*
 import com.example.youngcarers.ui.theme.*
 
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ABC_Screen(abcList: List<ABC>) {
+fun ABC_Screen(abcList: List<ABC>, navController: NavHostController) {
     val text = remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
@@ -62,7 +64,7 @@ fun ABC_Screen(abcList: List<ABC>) {
                     backgroundColor = Color.White,
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
-                        text.value = "clicked."
+                        navController.navigate(NavRoutes.Detail.route)
                     }
                 ) {
                     Row(
@@ -83,7 +85,7 @@ fun ABC_Screen(abcList: List<ABC>) {
 
                             // When this button is clicked, we add the person to deletedPersonList.
                             onClick = {
-                                text.value = "clicked."
+                                navController.navigate(NavRoutes.Detail.route)
                             }
                         ) {
                             // Simple composable that allows you to draw an icon on the screen. It
@@ -107,6 +109,7 @@ fun ABC_Screen(abcList: List<ABC>) {
 @Composable
 fun ABCScreenPreview() {
     ABC_Screen(
-        getABCList()
+        getABCList(),
+        navController = NavHostController(context = LocalContext.current)
     )
 }
