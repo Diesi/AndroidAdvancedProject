@@ -27,6 +27,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.youngcarers.core.*
 import com.example.youngcarers.screens.Detail_Screen
 import com.example.youngcarers.ui.theme.*
@@ -34,7 +36,8 @@ import java.util.*
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>) {
+fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>, navController: NavHostController) {
+
     Scaffold(
         backgroundColor = colorBackground,
         modifier = Modifier.padding(bottom = 55.dp)
@@ -98,7 +101,7 @@ fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>) {
                 )
             }
             items(emgList) { emg ->
-                EmergencyCard(emg.header, emg.description, emg.imageRes)
+                EmergencyCard(emg.header, emg.description, emg.imageRes, navController)
             }
 
         }
@@ -110,14 +113,15 @@ fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>) {
 fun EmergencyScreenPreview() {
     Emergency_Screen(
         getEmergencyList(),
-        getTelList()
+        getTelList(),
+        navController = NavHostController(context = LocalContext.current)
     )
 }
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun EmergencyCard(header: String, description: String, image: Int) {
-
+fun EmergencyCard(header: String, description: String, image: Int, navController: NavHostController) {
+    val viewTitle = "EMG"
     val text = remember { mutableStateOf("") }
     val mContext = LocalContext.current
     Card(
@@ -128,7 +132,7 @@ fun EmergencyCard(header: String, description: String, image: Int) {
             .wrapContentHeight()
             .clip(RoundedCornerShape(15.dp)),
         onClick = {
-
+            navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
         },
         shape = MaterialTheme.shapes.medium,
         elevation = 5.dp,
