@@ -2,9 +2,11 @@ package com.example.youngcarers
 
 import android.content.Intent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -70,17 +72,27 @@ fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>) {
                             end = 40.dp
                         )
                 )
-            }
-                items(telList) { tel ->
-                    TellCard(tel.header)
+           
+            
+            Row(modifier = Modifier
+                .horizontalScroll(rememberScrollState())
+                .fillMaxWidth()) {
+                for (numbers in getTelList()){
+                    TellCard(header = numbers.header)
                 }
-                item {
+                    /*items(telList) { tel ->
+                        TellCard(tel.header)
+                    }*/
+            }
+            }
+
+            item {
                 Text(
                     emgVorb,
                     modifier = Modifier
                         .padding(
-                            top = 40.dp,
-                            start = 40.dp,
+                            top = 20.dp,
+                            start = 20.dp,
                             end = 40.dp
                         )
                 )
@@ -186,40 +198,40 @@ fun TellCard(header: String) {
         backgroundColor = MaterialTheme.colors.surface
 
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-            //verticalAlignment = Alignment.CenterVertically,
-        ) {
 
-            Row(
-                Modifier.padding(8.dp),
-                verticalAlignment = Alignment.CenterVertically
+
+        Row(
+            modifier = Modifier
+                .padding(8.dp),
+
+            verticalAlignment = Alignment.CenterVertically,
+
             ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_phone_red),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(width = 50.dp, height = 50.dp)
-                        .padding(8.dp)
-                        .clip(RoundedCornerShape(15.dp)),
+            Icon(
+                painter = painterResource(id = R.drawable.ic_phone_red),
+                contentDescription = null,
+                tint = colorDarkRed,
+                modifier = Modifier
+                    .size(width = 40.dp, height = 40.dp)
+                    .padding(8.dp)
+                    .clip(RoundedCornerShape(15.dp)),
 
 
-                    )
-                Text(
+                )
+            Text(
 
-                    text = header,
-                    color = colorDarkRed,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth(),
+                text = header,
+                color = colorDarkRed,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth(),
 
-                    )
-
-            }
+                )
 
         }
+
 
     }
 

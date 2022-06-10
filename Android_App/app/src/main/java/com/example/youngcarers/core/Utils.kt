@@ -131,8 +131,8 @@ val emergency = listOf(
 
 )
 const val emgHeaderTxt = "Im Notfall"
-const val emgbodyTxt = "Hier findest du die wichtigstn Dinge bei einem Notfall."
-const val emgNotfallTxt = "Wenns mal wirklich schnell gehen muss:"
+const val emgbodyTxt = "Hier findest du die wichtigstn Dinge bei einem Notfall. Schnelle Hilfe und wichtige Kontakte."
+const val emgNotfallTxt = "Wenns mal wirklich schnell gehen muss. Die wichtigsten Rufnummern:"
 const val emgVorb = "Zur Vorbereitung"
 const val emgRettung = "144 - Rettung"
 const val emgPolice = "133 - Polizei"
