@@ -8,6 +8,7 @@ import com.example.youngcarers.core.emergency
 import com.example.youngcarers.core.getABCList
 import com.example.youngcarers.core.helps
 import com.example.youngcarers.core.tel
+import com.example.youngcarers.screens.Detail_Screen
 
 
 @Composable
