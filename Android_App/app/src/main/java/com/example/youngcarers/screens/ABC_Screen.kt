@@ -29,6 +29,8 @@ import com.example.youngcarers.ui.theme.*
 fun ABC_Screen(abcList: List<ABC>, navController: NavHostController) {
     val text = remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
+    val viewTitle = "ABC"
+
 
     Column(
         modifier = Modifier
@@ -64,7 +66,7 @@ fun ABC_Screen(abcList: List<ABC>, navController: NavHostController) {
                     backgroundColor = Color.White,
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
-                        navController.navigate(NavRoutes.Detail.route)
+                        navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
                     }
                 ) {
                     Row(
@@ -85,7 +87,7 @@ fun ABC_Screen(abcList: List<ABC>, navController: NavHostController) {
 
                             // When this button is clicked, we add the person to deletedPersonList.
                             onClick = {
-                                navController.navigate(NavRoutes.Detail.route)
+                                navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
                             }
                         ) {
                             // Simple composable that allows you to draw an icon on the screen. It

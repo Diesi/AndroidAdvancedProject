@@ -108,6 +108,7 @@ fun HelpScreenPreview() {
 fun HelpCard(header: String, description: String, image: Int, navController: NavHostController) {
     val text = remember { mutableStateOf("") }
     val mContext = LocalContext.current
+    val viewTitle = "help"
     Card(
         modifier = Modifier
             // The space between each card and the other
@@ -116,7 +117,7 @@ fun HelpCard(header: String, description: String, image: Int, navController: Nav
             .wrapContentHeight()
             .clip(RoundedCornerShape(15.dp)),
         onClick = {
-           navController.navigate(NavRoutes.Detail.route)
+            navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
         },
         shape = MaterialTheme.shapes.medium,
         elevation = 5.dp,

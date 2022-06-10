@@ -31,7 +31,7 @@ import java.util.*
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Detail_Screen(navController: NavHostController) {
+fun Detail_Screen(navController: NavHostController, viewTitle: String?) {
     val text = remember { mutableStateOf("") }
     Scaffold(
         topBar = {
@@ -42,7 +42,7 @@ fun Detail_Screen(navController: NavHostController) {
                 },
             navigationIcon = {
                 IconButton(onClick = {
-                    navController.navigate(NavigationItem.Help.route)
+                    navController.navigateUp()//navigate(NavigationItem.Help.route)
                 }) {
                     Icon(Icons.Filled.ArrowBack, "backIcon")
                 }
@@ -62,13 +62,25 @@ fun Detail_Screen(navController: NavHostController) {
         ) {
             item {
 
-                Text(
-                    helpHeaderTxt,
-                    color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
-                    fontSize = 35.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(start = 20.dp, top = 60.dp)
-                )
+
+                    if (viewTitle != null) {
+                        Text(
+                            "$viewTitle+HeaderTxt",
+                            color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                            fontSize = 35.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(start = 20.dp, top = 60.dp)
+                        )
+                    }else{
+                        Text(
+                            helpHeaderTxt,
+                            color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                            fontSize = 35.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(start = 20.dp, top = 60.dp)
+                        )
+                    }
+
                 Text(
                     helpBodyTxt,
                     modifier = Modifier.padding(
@@ -155,7 +167,8 @@ fun Detail_Screen(navController: NavHostController) {
 @Composable
 fun DetailScreenPreview() {
     Detail_Screen(
-        navController = NavHostController(context = LocalContext.current)
+        navController = NavHostController(context = LocalContext.current),
+        viewTitle = "D"
     )
 }
 @OptIn(ExperimentalMaterialApi::class)
