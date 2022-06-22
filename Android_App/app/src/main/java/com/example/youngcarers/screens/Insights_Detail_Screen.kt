@@ -1,10 +1,7 @@
 package com.example.youngcarers.screens
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -17,9 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -27,34 +22,33 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.youngcarers.R
-import com.example.youngcarers.TellCard
+import com.example.youngcarers.NavRoutes
 import com.example.youngcarers.core.*
 import com.example.youngcarers.ui.theme.*
 
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Detail_Screen(navController: NavHostController, viewTitle: String?) {
+fun Insights_Detail_Screen(navController: NavHostController, viewTitle: String?) {
     val text = remember { mutableStateOf("") }
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
-                    //*Error without txt ?*//
-                    ""
+                        //*Error without txt ?*//
+                        ""
                 },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        navController.navigateUp()//navigate(NavigationItem.Help.route)
-                    }) {
-                        Icon(Icons.Filled.ArrowBack, "backIcon")
-                    }
-                },
-                backgroundColor = colorDarkRed,
-                contentColor = Color.White,
-                elevation = 10.dp
-            ) },
+            navigationIcon = {
+                IconButton(onClick = {
+                    navController.navigateUp()//navigate(NavigationItem.Help.route)
+                }) {
+                    Icon(Icons.Filled.ArrowBack, "backIcon")
+                }
+            },
+            backgroundColor = colorDarkRed,
+        contentColor = Color.White,
+        elevation = 10.dp
+        ) },
         backgroundColor = colorBackground,
         modifier = Modifier.padding(bottom = 55.dp)
     ) {
@@ -67,22 +61,90 @@ fun Detail_Screen(navController: NavHostController, viewTitle: String?) {
             item {
 
 
-                if (viewTitle != null) {
-                    Text(
-                        "$viewTitle+HeaderTxt",
-                        color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
-                        fontSize = 35.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(start = 20.dp, top = 60.dp)
+                    if (viewTitle != null) {
+                        Text(
+                            "$viewTitle+HeaderTxt",
+                            color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                            fontSize = 35.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(start = 20.dp, top = 60.dp)
+                        )
+                    }else{
+                        Text(
+                            helpHeaderTxt,
+                            color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                            fontSize = 35.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(start = 20.dp, top = 60.dp)
+                        )
+                    }
+
+                Text(
+                    helpBodyTxt,
+                    modifier = Modifier.padding(
+                        start = 20.dp,
+                        top = 10.dp,
+                        end = 20.dp,
+                        bottom = 10.dp
                     )
-                }else{
-                    Text(
-                        helpHeaderTxt,
-                        color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
-                        fontSize = 35.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(start = 20.dp, top = 60.dp)
+                )
+
+
+
+                InsightsDetailCard(detail.header, detail.description, detail.imageRes)
+
+                Text(
+                    helpBodyTxt,
+                    modifier = Modifier.padding(
+                        start = 20.dp,
+                        top = 10.dp,
+                        end = 20.dp,
+                        bottom = 10.dp
                     )
+                )
+
+                Card(
+                    //shape = RoundedCornerShape(4.dp),
+                    backgroundColor = Color.White,
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
+
+                    }
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                        //.padding(16.dp)
+
+                    ) {
+                        Text(
+                            abcHeaderTxt, style = TextStyle(
+                                color = Color.Black,
+                                fontSize = 20.sp,
+                                textAlign = TextAlign.Left
+                            ), modifier = Modifier.padding(16.dp)
+                        )
+                        IconButton(
+
+                            // When this button is clicked, we add the person to deletedPersonList.
+                            onClick = {
+                                navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
+
+                            }
+                        ) {
+                            // Simple composable that allows you to draw an icon on the screen. It
+                            // accepts a vector asset as the icon.
+                            Icon(
+
+                                imageVector = Icons.Filled.KeyboardArrowRight,
+                                contentDescription = "Forward",
+                                modifier = Modifier.padding(end = 10.dp, top = 16.dp)
+
+                            )
+                        }
+                    }
                 }
 
                 Text(
@@ -95,33 +157,6 @@ fun Detail_Screen(navController: NavHostController, viewTitle: String?) {
                     )
                 )
 
-                for (numbers in getTelList()){
-                Text(
-                    text = "Überschrift",
-                    modifier = Modifier.padding(
-                        start = 20.dp,
-                        top = 10.dp,
-                        end = 20.dp,
-                        bottom = 10.dp
-                    )
-                )
-
-
-                Row(
-                    modifier = Modifier
-                        .horizontalScroll(rememberScrollState())
-                        .fillMaxWidth()
-                ) {
-                    for (numbers in getTelList()) {
-                        DetailSideCard(detail.header, detail.description, detail.imageRes)
-                    }
-                    /*items(telList) { tel ->
-                        TellCard(tel.header)
-                    }*/
-                }
-            }
-
-
             }
         }
     }
@@ -130,27 +165,25 @@ fun Detail_Screen(navController: NavHostController, viewTitle: String?) {
 
 @Preview(showBackground = true)
 @Composable
-fun DetailScreenPreview() {
-    Detail_Screen(
+fun InsightsDetailScreenPreview() {
+    Insights_Detail_Screen(
         navController = NavHostController(context = LocalContext.current),
         viewTitle = "D"
     )
 
 }
-
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun DetailSideCard(header: String, description: String, image: Int) {
-
+fun InsightsDetailCard(header: String, description: String, image: Int) {
     val text = remember { mutableStateOf("") }
     val mContext = LocalContext.current
     Card(
         modifier = Modifier
             // The space between each card and the other
             .padding(10.dp)
-            .clip(RoundedCornerShape(15.dp))
-            .width(310.dp)
-            ,
+            .fillMaxWidth()
+            .wrapContentHeight()
+            .clip(RoundedCornerShape(15.dp)),
         onClick = {
 
         },
@@ -160,7 +193,7 @@ fun DetailSideCard(header: String, description: String, image: Int) {
 
     ) {
         Column(
-            //horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally
             //verticalAlignment = Alignment.CenterVertically,
         ) {
 
@@ -168,7 +201,7 @@ fun DetailSideCard(header: String, description: String, image: Int) {
                 Modifier.padding(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
+                /*Image(
                     painter = painterResource(id = R.drawable.picture),
                     contentDescription = null,
                     modifier = Modifier
@@ -177,7 +210,7 @@ fun DetailSideCard(header: String, description: String, image: Int) {
                         .clip(RoundedCornerShape(15.dp)),
                     contentScale = ContentScale.Fit,
 
-                    )
+                    )*/
                 Text(
 
                     text = header,
@@ -197,8 +230,7 @@ fun DetailSideCard(header: String, description: String, image: Int) {
             )
         }
 
-
     }
-}
 
+}
 

@@ -1,18 +1,16 @@
 package com.example.youngcarers
 
 
-import android.provider.ContactsContract
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
 import com.example.youngcarers.core.emergency
 import com.example.youngcarers.core.getABCList
 import com.example.youngcarers.core.helps
 import com.example.youngcarers.core.tel
 import com.example.youngcarers.screens.Detail_Screen
+import com.example.youngcarers.screens.Insights_Detail_Screen
 
 
 @Composable
@@ -34,7 +32,12 @@ fun Navigation(navController: NavHostController) {
         composable(NavigationItem.About.route) {
             About_Screen()
         }
-        composable(NavRoutes.Detail.route + "/{viewTitle}"){backStackEntry ->
+        composable(NavRoutes.InsightsDetail.route + "/{viewTitle}"){ backStackEntry ->
+            val viewTitle = backStackEntry.arguments?.getString("viewTitle")
+            Insights_Detail_Screen(navController, viewTitle)
+
+        }
+        composable(NavRoutes.Detail.route + "/{viewTitle}"){ backStackEntry ->
             val viewTitle = backStackEntry.arguments?.getString("viewTitle")
             Detail_Screen(navController, viewTitle)
 

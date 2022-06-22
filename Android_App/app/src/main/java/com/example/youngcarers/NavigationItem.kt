@@ -17,5 +17,6 @@ sealed class NavRoutes(
     var title: String)
 {
 
+    object InsightsDetail : NavRoutes("insights_detail_route","insights detail")
     object Detail : NavRoutes("detail_route","detail")
 }
