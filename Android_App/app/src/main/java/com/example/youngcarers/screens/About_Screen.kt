@@ -10,17 +10,18 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.youngcarers.core.*
 import com.example.youngcarers.ui.theme.*
+import com.example.youngcarers.data.api.models.Metadata
+
+
 
 @Composable
-fun About_Screen() {
+fun About_Screen(metadata: List<Metadata>) {
     Column(
         modifier = Modifier
-            //.size(100.dp)
             .fillMaxSize()
             .background(colorBackground)
             .verticalScroll(rememberScrollState())
@@ -34,67 +35,42 @@ fun About_Screen() {
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(start = 20.dp, top = 60.dp)
-        )
+        ) //TODO: backend api
         Text(
             aboutBodyTxt,
             modifier = Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)
-        )
-        Text(
-            aboutHeaderImpTxt,
-            color = colorDarkRed,//colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
-            fontSize = 26.sp,
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
-        )
-        Text(
-            aboutBodyImpTxt1,
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
-        )
-        Text(
-            aboutBodyImpTxt2 , modifier = Modifier.padding(start = 20.dp, end = 20.dp)
-        )
-        Text(
-            aboutBodyImpTxt3, modifier = Modifier.padding(start = 20.dp, end = 20.dp)
-        )
-        Text(
-            aboutBodyImpTxt4,
-            modifier = Modifier.padding(start = 20.dp, end = 20.dp)
-        )
-        Text(
-            aboutHeaderCopyTxt,
-            color = colorDarkRed,//colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
-            fontSize = 26.sp,
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
-        )
-        Text(
-            aboutBodyCopyTxt,
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
-        )
-        Text(
-            aboutHeaderBarrTxt,
-            color = colorDarkRed,//colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
-            fontSize = 26.sp,
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
-        )
-        Text(
-            aboutBodyBarrTxt,
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
-        )
-        Text(
-            aboutHeaderDatenTxt,
-            color = colorDarkRed,//colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
-            fontSize = 26.sp,
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
-        )
-        Text(
-            aboutBodyDatenTxt,
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
-        )
+        ) //TODO: backend api
 
+        metadata.forEach { part ->
+            when (part.key) {
+                "imprint" ->
+                    txt(part.title, part.content)
+                "copyright" -> txt(part.title, part.content)
+                "accessibility" -> txt(part.title, part.content)
+                "gdpr" -> txt(part.title, part.content)
+            }
+            
+        }
     }
 }
 
+@Composable
+fun txt(title: String, content: String){
+    Text(
+        text = title,
+        color = colorDarkRed,//colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
+        fontSize = 26.sp,
+        modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
+    )
+    Text(
+        text = content,
+        modifier = Modifier.padding(start = 20.dp, end = 20.dp)
+    )
+}
+/*
 @Preview(showBackground = true)
 @Composable
 fun AboutScreenPreview() {
     About_Screen()
 }
+*/

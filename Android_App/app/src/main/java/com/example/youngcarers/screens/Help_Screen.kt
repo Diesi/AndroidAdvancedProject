@@ -1,43 +1,51 @@
 package com.example.youngcarers
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.youngcarers.core.*
+import com.example.youngcarers.data.api.models.Insight
 import com.example.youngcarers.ui.theme.*
+import com.example.youngcarers.cards.*
 
 
 @Composable
-fun Help_Screen(helpList: List<Help>,navController: NavHostController) {
+fun Help_Screen(
+    insights: List<Insight>,
+    navigateToDetail: (questionIndex: Int) -> Unit,
+    navController: NavHostController) {
 
     Scaffold(
         backgroundColor = colorBackground,
         modifier = Modifier.padding(bottom = 55.dp)
     ) {
+
+        Column {
+        /*Column {
+            insights.forEachIndexed { index, insight ->
+                Button(onClick = {
+                    navigateToDetail(index)
+                }) {
+                    Text(text = insight.question)
+                }
+            }
+        }*/
+
+        val helpList = helps
+
         LazyColumn(
             Modifier.fillMaxWidth(),
-            contentPadding = PaddingValues(16.dp),
-            //horizontalAlignment = Alignment.CenterHorizontally
-
+            contentPadding = PaddingValues(16.dp)
         ) {
             item {
 
@@ -47,7 +55,7 @@ fun Help_Screen(helpList: List<Help>,navController: NavHostController) {
                     fontSize = 35.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(start = 20.dp, top = 60.dp)
-                )
+                )//TODO: txt from api
                 Text(
                     helpBodyTxt,
                     modifier = Modifier.padding(
@@ -56,12 +64,15 @@ fun Help_Screen(helpList: List<Help>,navController: NavHostController) {
                         end = 20.dp,
                         bottom = 10.dp
                     )
-                )
+                )//TODO: txt from api
 
             }
             items(helpList) { help ->
-                HelpCard(help.header, help.description, help.imageRes, navController)
+                InsightsDetailCard(header = help.header, description = help.description, image = help.imageRes , navController = navController, url = "null")
             }
+           /* insights.forEach { part ->
+                InsightsDetailCard(header = part.question, description = help.de, image = , navController = )
+            }*/ //TODO when api is ready
 
             item {
                 Text(
@@ -87,6 +98,7 @@ fun Help_Screen(helpList: List<Help>,navController: NavHostController) {
 
 
         }
+        }
     }
 }
 /*
@@ -97,94 +109,4 @@ fun HelpScreenPreview() {
         getHelpList()
     )
 }
-*/
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-fun HelpCard(header: String, description: String, image: Int, navController: NavHostController) {
-    val text = remember { mutableStateOf("") }
-    val mContext = LocalContext.current
-    val viewTitle = "help"
-    Card(
-        modifier = Modifier
-            // The space between each card and the other
-            .padding(10.dp)
-            .fillMaxWidth()
-            .wrapContentHeight()
-            .clip(RoundedCornerShape(15.dp)),
-        onClick = {
-            navController.navigate(NavRoutes.InsightsDetail.route + "/$viewTitle")
-        },
-        shape = MaterialTheme.shapes.medium,
-        elevation = 5.dp,
-        backgroundColor = MaterialTheme.colors.surface
-
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-            //verticalAlignment = Alignment.CenterVertically,
-        ) {
-
-            Row(
-                Modifier.padding(8.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.picture),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(width = 120.dp, height = 80.dp)
-                        .padding(8.dp)
-                        .clip(RoundedCornerShape(15.dp)),
-                    contentScale = ContentScale.Fit,
-
-                    )
-                Text(
-
-                    text = header,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth(),
-
-                    )
-
-            }
-            Text(
-                text = description,
-                style = MaterialTheme.typography.body2,
-                modifier = Modifier.padding(start = 30.dp, bottom = 15.dp, end = 30.dp)
-            )
-        }
-
-    }
-
-}
-/*
-//@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true, name = "Light mode")
-//@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, name = "Dark mode")
-@Preview(showBackground = true)
-@Composable
-fun HelpCardPreview() {
-    YoungCarersTheme {
-        HelpCard(helps[0].header, helps[0].description, helps[0].imageRes)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun HelpCard1Preview() {
-    YoungCarersTheme {
-        HelpCard(helps[1].header, helps[1].description, helps[1].imageRes)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun HelpCard2Preview() {
-    YoungCarersTheme {
-        HelpCard(helps[2].header, helps[2].description, helps[2].imageRes)
-    }
-}
-
  */
