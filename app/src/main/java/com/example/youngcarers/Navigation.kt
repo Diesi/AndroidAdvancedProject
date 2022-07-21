@@ -13,11 +13,13 @@ import com.example.youngcarers.core.tel
 import com.example.youngcarers.data.api.service.MainViewModel
 import com.example.youngcarers.screens.Detail_Screen
 import com.example.youngcarers.screens.Insights_Detail_Screen
-
+import org.koin.androidx.compose.getViewModel
 
 
 @Composable
-fun Navigation(navController: NavHostController, mainViewModel: MainViewModel) {
+fun Navigation(navController: NavHostController) {
+
+    val mainViewModel = getViewModel<MainViewModel>()
 
     fun navigateToInsightDetail(questionIndex: Int) {
         navController.navigate(NavRoutes.InsightsDetail.route + "/$questionIndex")

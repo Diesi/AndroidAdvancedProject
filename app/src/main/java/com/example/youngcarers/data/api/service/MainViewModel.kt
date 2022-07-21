@@ -5,29 +5,33 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.youngcarers.data.api.models.Abc
-import com.example.youngcarers.data.api.models.Content
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.youngcarers.DataRepository
 import com.example.youngcarers.data.api.models.YoungCarersModel
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
-class MainViewModel:  ViewModel() {
+class MainViewModel (val repository: DataRepository):  ViewModel() {
 
     //ToDo: cache for speed data loading, data integrated in the build
 
     var content: YoungCarersModel? by mutableStateOf(null);
 
     var errorMessage: String by mutableStateOf("")
-    fun loadContent() {
+
+    init {
         viewModelScope.launch {
-            val apiService = APIService.getInstance()
-            try {
-                content = apiService
-                    .getContent()
-                    .body()
-            }
-            catch (e: Exception) {
-                errorMessage = e.message.toString()
-            }
+            content = loadContent()
         }
+
+    }
+
+    suspend fun loadContent() : YoungCarersModel? {
+        return try {
+            repository.loadContent()
+        } catch (e: Exception) {
+            TODO("Write Exception Handling")
+        }
+
     }
 }
