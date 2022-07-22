@@ -23,13 +23,22 @@ import com.example.youngcarers.R
 import com.example.youngcarers.core.*
 import com.example.youngcarers.data.api.models.Abc
 import com.example.youngcarers.cards.AbcDetailSideCard
+import com.example.youngcarers.screens.abc.AbcViewModel
+import com.example.youngcarers.screens.detail.DetailViewModel
 import com.example.youngcarers.ui.theme.*
+import org.koin.androidx.compose.getViewModel
 
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun DetailScreen(navController: NavHostController, viewTitle: String?, content: List<Abc>) {
+fun DetailScreen(
+    navController: NavHostController,
+    viewTitle: String?,
+    content: List<Abc>
+) {
     val text = remember { mutableStateOf("") }
+
+    val viewModel = getViewModel<DetailViewModel>()
 
     Scaffold(
         topBar = {

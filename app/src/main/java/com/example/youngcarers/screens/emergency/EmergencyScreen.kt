@@ -15,11 +15,20 @@ import androidx.navigation.NavHostController
 import com.example.youngcarers.core.*
 import com.example.youngcarers.cards.EmergencyNumberCard
 import com.example.youngcarers.cards.InsightsDetailCard
+import com.example.youngcarers.screens.abc.AbcViewModel
+import com.example.youngcarers.screens.emergency.EmergencyViewModel
 import com.example.youngcarers.ui.theme.*
+import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun EmergencyScreen(emgList: List<Emergency>, telList: List<Tel>, navController: NavHostController) {
+fun EmergencyScreen(
+    emgList: List<Emergency>,
+    telList: List<Tel>,
+    navController: NavHostController
+) {
+
+    val viewModel = getViewModel<EmergencyViewModel>()
 
     Scaffold(
         backgroundColor = colorBackground,

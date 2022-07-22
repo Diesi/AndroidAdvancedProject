@@ -34,8 +34,8 @@ val helps = listOf(
 val detail = Detail(1,head1, body1, 1)
 
 // ABC view data
-const val abcHeaderTxt = "Young Carers ABC"
-const val abcBodyTxt = "Hier haben wir alle Informationen für dich gesammelt und alphabetisch sortiert " +
+const val abc_title = "Young Carers ABC"
+const val abc_body = "Hier haben wir alle Informationen für dich gesammelt und alphabetisch sortiert " +
         "Schau einfach ein bisschen durch, frag den Chatbot oder probiere die Suche " +
         "wenn du Infos zu einem speziellen Thema haben möchtest "
 

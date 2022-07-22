@@ -49,7 +49,6 @@ fun Navigation(navController: NavHostController) {
             composable(NavigationItem.ABC.route) {
                 mainViewModel.content?.let { content ->
                     AbcScreen(
-                        categories = content.abc,
                         navigateToDetail = ::navigateToAbcDetail,
                         navController)
             }}

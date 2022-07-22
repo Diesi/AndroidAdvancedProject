@@ -15,11 +15,16 @@ import androidx.compose.ui.unit.sp
 import com.example.youngcarers.core.*
 import com.example.youngcarers.ui.theme.*
 import com.example.youngcarers.data.api.models.Metadata
-
+import com.example.youngcarers.screens.abc.AbcViewModel
+import com.example.youngcarers.screens.about.AboutViewModel
+import org.koin.androidx.compose.getViewModel
 
 
 @Composable
 fun AboutScreen(metadata: List<Metadata>) {
+
+    val viewModel = getViewModel<AboutViewModel>()
+
     Column(
         modifier = Modifier
             .fillMaxSize()

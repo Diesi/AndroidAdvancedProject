@@ -25,7 +25,8 @@ import org.koin.androidx.compose.getViewModel
 fun HelpScreen(
     insights: List<Insight>,
     navigateToDetail: (questionIndex: Int) -> Unit,
-    navController: NavHostController) {
+    navController: NavHostController
+) {
 
     val viewModel = getViewModel<HelpScreenViewModel>()
 

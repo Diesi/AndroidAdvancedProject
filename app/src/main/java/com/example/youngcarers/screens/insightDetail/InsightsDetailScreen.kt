@@ -19,12 +19,21 @@ import com.example.youngcarers.R
 import com.example.youngcarers.data.api.models.Insight
 import com.example.youngcarers.ui.theme.*
 import com.example.youngcarers.cards.*
+import com.example.youngcarers.screens.abc.AbcViewModel
+import com.example.youngcarers.screens.insightDetail.InsightsDetailViewModel
+import org.koin.androidx.compose.getViewModel
 
 //ToDo: Insights get data dynamic in random order, text, reference,
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun InsightsDetailScreen(navController: NavHostController, insight: Insight) {
+fun InsightsDetailScreen(
+    navController: NavHostController,
+    insight: Insight
+) {
+
+    val viewModel = getViewModel<InsightsDetailViewModel>()
+
     Scaffold(
         topBar = {
             TopAppBar(
