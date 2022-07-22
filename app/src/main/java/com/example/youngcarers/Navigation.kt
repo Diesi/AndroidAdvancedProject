@@ -11,8 +11,8 @@ import com.example.youngcarers.core.emergency
 //import com.example.youngcarers.core.getABCList
 import com.example.youngcarers.core.tel
 import com.example.youngcarers.data.api.service.MainViewModel
-import com.example.youngcarers.screens.Detail_Screen
-import com.example.youngcarers.screens.Insights_Detail_Screen
+import com.example.youngcarers.screens.DetailScreen
+import com.example.youngcarers.screens.InsightsDetailScreen
 import org.koin.androidx.compose.getViewModel
 
 
@@ -37,7 +37,7 @@ fun Navigation(navController: NavHostController) {
             // Insights Page
             composable(NavigationItem.Help.route) {
                 mainViewModel.content?.let { content ->
-                    Help_Screen(
+                    HelpScreen(
                         insights = content.insights,
                         navigateToDetail = ::navigateToInsightDetail,
                         navController
@@ -48,7 +48,7 @@ fun Navigation(navController: NavHostController) {
             // Categories Page
             composable(NavigationItem.ABC.route) {
                 mainViewModel.content?.let { content ->
-                    ABC_Screen(
+                    AbcScreen(
                         categories = content.abc,
                         navigateToDetail = ::navigateToAbcDetail,
                         navController)
@@ -56,13 +56,13 @@ fun Navigation(navController: NavHostController) {
 
             // Emergency Page
             composable(NavigationItem.Emergency.route) {
-                Emergency_Screen(emergency, tel, navController)
+                EmergencyScreen(emergency, tel, navController)
             }
 
             // About Page
             composable(NavigationItem.About.route) {
                 mainViewModel.content?.let { content ->
-                    About_Screen(
+                    AboutScreen(
                         metadata = content.metadata
                     )
                 }
@@ -78,7 +78,7 @@ fun Navigation(navController: NavHostController) {
 
                 mainViewModel.content?.let { content ->
                     val insight = content.insights[questionIndex]
-                    Insights_Detail_Screen(navController, insight!!)
+                    InsightsDetailScreen(navController, insight)
                 }
             }
 
@@ -86,10 +86,8 @@ fun Navigation(navController: NavHostController) {
             composable(NavRoutes.Detail.route + "/{viewTitle}") { backStackEntry ->
                 val viewTitle = backStackEntry.arguments?.getString("viewTitle")
                 mainViewModel.content?.let { content ->
-                    Detail_Screen(navController, viewTitle, content = content.abc)
+                    DetailScreen(navController, viewTitle, content = content.abc)
                 }
-
-
             }
 
     }

@@ -28,7 +28,7 @@ import com.example.youngcarers.ui.theme.*
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Detail_Screen(navController: NavHostController, viewTitle: String?, content: List<Abc>) {
+fun DetailScreen(navController: NavHostController, viewTitle: String?, content: List<Abc>) {
     val text = remember { mutableStateOf("") }
 
     Scaffold(

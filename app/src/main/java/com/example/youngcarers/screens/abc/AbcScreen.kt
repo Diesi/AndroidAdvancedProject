@@ -16,12 +16,13 @@ import com.example.youngcarers.cards.AbcDetailCard
 import com.example.youngcarers.ui.theme.*
 
 @Composable
-fun ABC_Screen(
+fun AbcScreen(
     categories: List<Abc>,
     navigateToDetail: (questionIndex: String) -> Unit,
     navController: NavHostController
 ) {
     var selectedIndex by remember { mutableStateOf(-1) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()

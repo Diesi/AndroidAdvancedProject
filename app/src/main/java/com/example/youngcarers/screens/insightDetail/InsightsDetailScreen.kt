@@ -24,7 +24,7 @@ import com.example.youngcarers.cards.*
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Insights_Detail_Screen(navController: NavHostController, insight: Insight) {
+fun InsightsDetailScreen(navController: NavHostController, insight: Insight) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -87,7 +87,7 @@ fun Insights_Detail_Screen(navController: NavHostController, insight: Insight) {
 fun InsightsDetailScreenPreview() {
     val insight: Insight = Insight(listOf(), "Ist das eine Frage?");
 
-    Insights_Detail_Screen(
+    InsightsDetailScreen(
         navController = NavHostController(context = LocalContext.current),
         insight
     )

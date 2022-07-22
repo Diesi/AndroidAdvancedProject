@@ -17,13 +17,17 @@ import com.example.youngcarers.core.*
 import com.example.youngcarers.data.api.models.Insight
 import com.example.youngcarers.ui.theme.*
 import com.example.youngcarers.cards.*
+import com.example.youngcarers.screens.help.HelpScreenViewModel
+import org.koin.androidx.compose.getViewModel
 
 
 @Composable
-fun Help_Screen(
+fun HelpScreen(
     insights: List<Insight>,
     navigateToDetail: (questionIndex: Int) -> Unit,
     navController: NavHostController) {
+
+    val viewModel = getViewModel<HelpScreenViewModel>()
 
     Scaffold(
         backgroundColor = colorBackground,
@@ -67,6 +71,7 @@ fun Help_Screen(
                 )//TODO: txt from api
 
             }
+
             items(helpList) { help ->
                 InsightsDetailCard(header = help.header, description = help.description, image = help.imageRes , navController = navController, url = "null")
             }
@@ -105,7 +110,7 @@ fun Help_Screen(
 @Preview(showBackground = true)
 @Composable
 fun HelpScreenPreview() {
-    Help_Screen(
+    HelpScreen(
         getHelpList()
     )
 }

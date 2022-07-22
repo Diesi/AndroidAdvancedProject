@@ -19,7 +19,7 @@ import com.example.youngcarers.data.api.models.Metadata
 
 
 @Composable
-fun About_Screen(metadata: List<Metadata>) {
+fun AboutScreen(metadata: List<Metadata>) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -31,7 +31,7 @@ fun About_Screen(metadata: List<Metadata>) {
 
         Text(
             aboutHeaderTxt,
-            color = colorDarkRed,//colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
+            color = colorDarkRed, //colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(start = 20.dp, top = 60.dp)
