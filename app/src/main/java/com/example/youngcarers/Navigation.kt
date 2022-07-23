@@ -1,18 +1,13 @@
 package com.example.youngcarers
 
-
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.youngcarers.core.emergency
-//import com.example.youngcarers.core.getABCList
-import com.example.youngcarers.core.tel
 import com.example.youngcarers.screens.DetailScreen
 import com.example.youngcarers.screens.InsightsDetailScreen
-
 
 @Composable
 fun Navigation(navController: NavHostController) {
@@ -50,7 +45,7 @@ fun Navigation(navController: NavHostController) {
 
         // Emergency Page
         composable(NavigationItem.Emergency.route) {
-            EmergencyScreen(emergency, tel, navController)
+            EmergencyScreen(navController)
         }
 
         // About Page

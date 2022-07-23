@@ -15,8 +15,6 @@ import androidx.navigation.NavHostController
 import com.example.youngcarers.core.*
 import com.example.youngcarers.cards.EmergencyNumberCard
 import com.example.youngcarers.cards.InsightsDetailCard
-import com.example.youngcarers.data.api.models.Metadata
-import com.example.youngcarers.screens.abc.AbcViewModel
 import com.example.youngcarers.screens.emergency.EmergencyViewModel
 import com.example.youngcarers.ui.theme.*
 import org.koin.androidx.compose.getViewModel
@@ -24,14 +22,10 @@ import org.koin.androidx.compose.getViewModel
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EmergencyScreen(
-    emgList: List<Emergency>,
-    telList: List<Tel>,
     navController: NavHostController
 ) {
 
     val viewModel = getViewModel<EmergencyViewModel>()
-//    val emergency: List<Emergency> by viewModel.emergency.collectAsState(initial = emptyList())
-
 
     Scaffold(
         backgroundColor = colorBackground,
@@ -76,8 +70,8 @@ fun EmergencyScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
-                    for (numbers in getTelList()) {
-                        EmergencyNumberCard(header = numbers.header)
+                    for (number in getPhoneList()) {
+                        EmergencyNumberCard(header = number.header)
                     }
                 }
             }
@@ -93,11 +87,11 @@ fun EmergencyScreen(
                         )
                 )
             }
-            items(emgList) { emg ->
+            items(getEmergencyList()) { emergency ->
                 InsightsDetailCard(
-                    emg.header,
-                    emg.description,
-                    emg.imageRes,
+                    emergency.header,
+                    emergency.description,
+                    emergency.imageRes,
                     navController,
                     "https://www.linz.at/notfall.php"
                 )
@@ -112,8 +106,6 @@ fun EmergencyScreen(
 @Composable
 fun EmergencyScreenPreview() {
     EmergencyScreen(
-        getEmergencyList(),
-        getTelList(),
         navController = NavHostController(context = LocalContext.current)
     )
 }

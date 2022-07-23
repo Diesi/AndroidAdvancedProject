@@ -19,7 +19,6 @@ import com.example.youngcarers.core.*
 import com.example.youngcarers.data.api.models.Insight
 import com.example.youngcarers.ui.theme.*
 import com.example.youngcarers.cards.*
-import com.example.youngcarers.data.api.models.Metadata
 import com.example.youngcarers.screens.help.HelpScreenViewModel
 import org.koin.androidx.compose.getViewModel
 
@@ -59,14 +58,14 @@ fun HelpScreen(
                 item {
 
                     Text(
-                        helpHeaderTxt,
+                        help_title,
                         color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
                         fontSize = 35.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(start = 20.dp, top = 60.dp)
                     )//TODO: txt from api
                     Text(
-                        helpBodyTxt,
+                        help_body,
                         modifier = Modifier.padding(
                             start = 20.dp,
                             top = 10.dp,
@@ -92,7 +91,7 @@ fun HelpScreen(
 
                 item {
                     Text(
-                        helpBodyBottom,
+                        help_body_hint,
                         modifier = Modifier
                             .padding(
                                 top = 40.dp,

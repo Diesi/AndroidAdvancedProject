@@ -11,17 +11,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.youngcarers.R
 
 import com.example.youngcarers.core.*
 import com.example.youngcarers.data.api.models.Abc
 import com.example.youngcarers.cards.AbcDetailSideCard
-import com.example.youngcarers.screens.abc.AbcViewModel
 import com.example.youngcarers.screens.detail.DetailViewModel
 import com.example.youngcarers.ui.theme.*
 import org.koin.androidx.compose.getViewModel
@@ -84,7 +81,7 @@ fun DetailScreen(
                             )
                         } else {
                             Text(
-                                helpHeaderTxt,
+                                help_title,
                                 color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
                                 fontSize = 35.sp,
                                 fontWeight = FontWeight.Bold,
