@@ -32,9 +32,14 @@ fun BottomNavigationBar(navController: NavHostController) {
 
         items.forEach { screen ->
             BottomNavigationItem(
-                icon = { Icon(painterResource(id = screen.icon), contentDescription = screen.title) },
+                icon = {
+                    Icon(
+                        painterResource(id = screen.icon),
+                        contentDescription = screen.title
+                    )
+                },
                 label = { Text(text = screen.title) },
-                selectedContentColor =  colorDarkRed,//colorResource(com.example.youngcarers.R.color.yc_red_dark),
+                selectedContentColor = colorDarkRed,//colorResource(com.example.youngcarers.R.color.yc_red_dark),
                 unselectedContentColor = Color.DarkGray.copy(0.4f),
                 alwaysShowLabel = true,
                 selected = currentRoute == screen.route,

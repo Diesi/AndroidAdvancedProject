@@ -27,20 +27,18 @@ fun AbcDetailCard(data: Abc, navController: NavHostController, onClick: (Int) ->
 
     var viewTitle = data.name
 
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(1.dp)
-
     ) {
         Card(
             backgroundColor = Color.White,
             modifier = Modifier.fillMaxWidth(),
             onClick = {
                 //Todo "/" error handling
-                if(viewTitle.contains("/")){
-                    viewTitle = viewTitle.replace("/","")
+                if (viewTitle.contains("/")) {
+                    viewTitle = viewTitle.replace("/", "")
                 }
                 navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
             }
@@ -59,13 +57,11 @@ fun AbcDetailCard(data: Abc, navController: NavHostController, onClick: (Int) ->
                     ), modifier = Modifier.padding(16.dp)
                 )
 
-                    Icon(
-
-                        imageVector = Icons.Filled.KeyboardArrowRight,
-                        contentDescription = "Forward",
-                        modifier = Modifier.padding(end = 10.dp, top = 16.dp)
-
-                    )
+                Icon(
+                    imageVector = Icons.Filled.KeyboardArrowRight,
+                    contentDescription = "Forward",
+                    modifier = Modifier.padding(end = 10.dp, top = 16.dp)
+                )
 
             }
         }

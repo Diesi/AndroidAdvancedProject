@@ -3,28 +3,35 @@ package com.example.youngcarers
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.youngcarers.core.*
-import com.example.youngcarers.cards.AbcDetailSideCard
 import com.example.youngcarers.cards.EmergencyNumberCard
 import com.example.youngcarers.cards.InsightsDetailCard
+import com.example.youngcarers.data.api.models.Metadata
+import com.example.youngcarers.screens.abc.AbcViewModel
+import com.example.youngcarers.screens.emergency.EmergencyViewModel
 import com.example.youngcarers.ui.theme.*
+import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>, navController: NavHostController) {
+fun EmergencyScreen(
+    emgList: List<Emergency>,
+    telList: List<Tel>,
+    navController: NavHostController
+) {
+
+    val viewModel = getViewModel<EmergencyViewModel>()
+//    val emergency: List<Emergency> by viewModel.emergency.collectAsState(initial = emptyList())
+
 
     Scaffold(
         backgroundColor = colorBackground,
@@ -65,12 +72,14 @@ fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>, navController
 
 
 
-            Column(modifier = Modifier
-                .fillMaxWidth()) {
-                for (numbers in getTelList()){
-                    EmergencyNumberCard(header = numbers.header)
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    for (numbers in getTelList()) {
+                        EmergencyNumberCard(header = numbers.header)
+                    }
                 }
-            }
             }
 
             item {
@@ -85,7 +94,13 @@ fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>, navController
                 )
             }
             items(emgList) { emg ->
-                InsightsDetailCard(emg.header, emg.description, emg.imageRes,navController, "https://www.linz.at/notfall.php")
+                InsightsDetailCard(
+                    emg.header,
+                    emg.description,
+                    emg.imageRes,
+                    navController,
+                    "https://www.linz.at/notfall.php"
+                )
                 //TODO: add url from api
             }
 
@@ -96,7 +111,7 @@ fun Emergency_Screen(emgList: List<Emergency>, telList: List<Tel>, navController
 @Preview(showBackground = true)
 @Composable
 fun EmergencyScreenPreview() {
-    Emergency_Screen(
+    EmergencyScreen(
         getEmergencyList(),
         getTelList(),
         navController = NavHostController(context = LocalContext.current)

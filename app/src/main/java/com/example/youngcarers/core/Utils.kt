@@ -34,14 +34,14 @@ val helps = listOf(
 val detail = Detail(1,head1, body1, 1)
 
 // ABC view data
-const val abcHeaderTxt = "Young Carers ABC"
-const val abcBodyTxt = "Hier haben wir alle Informationen für dich gesammelt und alphabetisch sortiert " +
+const val abc_title = "Young Carers ABC"
+const val abc_body = "Hier haben wir alle Informationen für dich gesammelt und alphabetisch sortiert " +
         "Schau einfach ein bisschen durch, frag den Chatbot oder probiere die Suche " +
         "wenn du Infos zu einem speziellen Thema haben möchtest "
 
 // About view data
-const val aboutHeaderTxt = "Über die App und Rechtliches"
-const val aboutBodyTxt = "Hallo. Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn. Man wird zusammenhangslos eingeschoben und rumgedreht – und oftmals gar nicht erst gelesen. "
+const val about_title = "Über die App und Rechtliches"
+const val about_body = "Hallo. Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn. Man wird zusammenhangslos eingeschoben und rumgedreht – und oftmals gar nicht erst gelesen. "
 
 //Emergency view data
 data class Emergency(
