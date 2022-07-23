@@ -7,6 +7,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -20,6 +22,7 @@ import com.example.youngcarers.data.api.models.Insight
 import com.example.youngcarers.ui.theme.*
 import com.example.youngcarers.cards.*
 import com.example.youngcarers.screens.abc.AbcViewModel
+import com.example.youngcarers.screens.help.HelpScreenViewModel
 import com.example.youngcarers.screens.insightDetail.InsightsDetailViewModel
 import org.koin.androidx.compose.getViewModel
 
@@ -29,10 +32,12 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun InsightsDetailScreen(
     navController: NavHostController,
-    insight: Insight
+    questionIndex: Int
 ) {
 
-    val viewModel = getViewModel<InsightsDetailViewModel>()
+    val viewModel = getViewModel<HelpScreenViewModel>()
+    val insights: List<Insight> by viewModel.insights.collectAsState(initial = emptyList())
+    val insight: Insight =  insights[questionIndex]
 
     Scaffold(
         topBar = {
@@ -42,16 +47,18 @@ fun InsightsDetailScreen(
                         insight.question
                 },
             navigationIcon = {
-                IconButton(onClick = {
-                    navController.navigateUp()//navigate(NavigationItem.Help.route)
-                }) {
+                IconButton(
+                    onClick = {
+                        navController.navigateUp()//navigate(NavigationItem.Help.route)
+                    }
+                ) {
                     Icon(Icons.Filled.ArrowBack, "backIcon")
                 }
             },
             backgroundColor = colorDarkRed,
-        contentColor = Color.White,
-        elevation = 10.dp
-        ) },
+            contentColor = Color.White,
+            elevation = 10.dp
+            ) },
         backgroundColor = colorBackground,
         modifier = Modifier.padding(bottom = 55.dp)
     ) {
@@ -95,10 +102,11 @@ fun InsightsDetailScreen(
 @Composable
 fun InsightsDetailScreenPreview() {
     val insight: Insight = Insight(listOf(), "Ist das eine Frage?");
+    val questionIndex = 0
 
     InsightsDetailScreen(
         navController = NavHostController(context = LocalContext.current),
-        insight
+        questionIndex
     )
 
 }

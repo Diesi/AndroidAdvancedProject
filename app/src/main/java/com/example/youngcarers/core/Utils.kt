@@ -40,8 +40,8 @@ const val abc_body = "Hier haben wir alle Informationen für dich gesammelt und 
         "wenn du Infos zu einem speziellen Thema haben möchtest "
 
 // About view data
-const val aboutHeaderTxt = "Über die App und Rechtliches"
-const val aboutBodyTxt = "Hallo. Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn. Man wird zusammenhangslos eingeschoben und rumgedreht – und oftmals gar nicht erst gelesen. "
+const val about_title = "Über die App und Rechtliches"
+const val about_body = "Hallo. Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn. Man wird zusammenhangslos eingeschoben und rumgedreht – und oftmals gar nicht erst gelesen. "
 
 //Emergency view data
 data class Emergency(

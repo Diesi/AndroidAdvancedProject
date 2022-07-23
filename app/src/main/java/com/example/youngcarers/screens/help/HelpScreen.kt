@@ -7,6 +7,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.text.font.FontWeight
@@ -17,18 +19,20 @@ import com.example.youngcarers.core.*
 import com.example.youngcarers.data.api.models.Insight
 import com.example.youngcarers.ui.theme.*
 import com.example.youngcarers.cards.*
+import com.example.youngcarers.data.api.models.Metadata
 import com.example.youngcarers.screens.help.HelpScreenViewModel
 import org.koin.androidx.compose.getViewModel
 
 
 @Composable
 fun HelpScreen(
-    insights: List<Insight>,
     navigateToDetail: (questionIndex: Int) -> Unit,
     navController: NavHostController
 ) {
 
     val viewModel = getViewModel<HelpScreenViewModel>()
+    val insights: List<Insight> by viewModel.insights.collectAsState(initial = emptyList())
+
 
     Scaffold(
         backgroundColor = colorBackground,

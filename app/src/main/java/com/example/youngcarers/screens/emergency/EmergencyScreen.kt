@@ -15,6 +15,7 @@ import androidx.navigation.NavHostController
 import com.example.youngcarers.core.*
 import com.example.youngcarers.cards.EmergencyNumberCard
 import com.example.youngcarers.cards.InsightsDetailCard
+import com.example.youngcarers.data.api.models.Metadata
 import com.example.youngcarers.screens.abc.AbcViewModel
 import com.example.youngcarers.screens.emergency.EmergencyViewModel
 import com.example.youngcarers.ui.theme.*
@@ -29,6 +30,8 @@ fun EmergencyScreen(
 ) {
 
     val viewModel = getViewModel<EmergencyViewModel>()
+//    val emergency: List<Emergency> by viewModel.emergency.collectAsState(initial = emptyList())
+
 
     Scaffold(
         backgroundColor = colorBackground,
@@ -71,10 +74,10 @@ fun EmergencyScreen(
 
             Column(modifier = Modifier
                 .fillMaxWidth()) {
-                for (numbers in getTelList()){
-                    EmergencyNumberCard(header = numbers.header)
+                    for (numbers in getTelList()){
+                        EmergencyNumberCard(header = numbers.header)
+                    }
                 }
-            }
             }
 
             item {

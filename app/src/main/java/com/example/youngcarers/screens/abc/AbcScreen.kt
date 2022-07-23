@@ -44,12 +44,12 @@ fun AbcScreen(
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(start = 20.dp, top = 60.dp)
-        )
+        )//TODO: backend api
 
         Text(
             abc_body,
             modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 40.dp, bottom = 20.dp)
-        )
+        )//TODO: backend api
 
         articles.forEach { article ->
             AbcDetailCard(data = article, navController) { i ->
