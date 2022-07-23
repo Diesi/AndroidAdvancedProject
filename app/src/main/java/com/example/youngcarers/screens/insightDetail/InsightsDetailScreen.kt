@@ -43,27 +43,30 @@ fun InsightsDetailScreen(
         topBar = {
             TopAppBar(
                 title = {
-                        //*Error without txt ?*//
-                        insight?.question
+                    //*Error without txt ?*//
+                    insight?.question
                 },
-            navigationIcon = {
-                IconButton(
-                    onClick = {
-                        navController.navigateUp()//navigate(NavigationItem.Help.route)
+                navigationIcon = {
+                    IconButton(
+                        onClick = {
+                            navController.navigateUp()//navigate(NavigationItem.Help.route)
+                        }
+                    ) {
+                        Icon(Icons.Filled.ArrowBack, "backIcon")
                     }
-                ) {
-                    Icon(Icons.Filled.ArrowBack, "backIcon")
-                }
-            },
-            backgroundColor = colorDarkRed,
-            contentColor = Color.White,
-            elevation = 10.dp
-            ) },
+                },
+                backgroundColor = colorDarkRed,
+                contentColor = Color.White,
+                elevation = 10.dp
+            )
+        },
         backgroundColor = colorBackground,
         modifier = Modifier.padding(bottom = 55.dp)
     ) {
-        Column(modifier = Modifier
-            .verticalScroll(rememberScrollState())) {
+        Column(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState())
+        ) {
 
             if (insight != null) {
                 Text(
@@ -74,18 +77,20 @@ fun InsightsDetailScreen(
                     modifier = Modifier.padding(start = 20.dp, top = 60.dp)
                 )
             }
-            
+
             // render parts based on their type
             if (insight != null) {
                 insight.content.forEach { part ->
                     when (part.type) {
-                        "text" -> Text(text = part.text,
+                        "text" -> Text(
+                            text = part.text,
                             modifier = Modifier.padding(
                                 start = 20.dp,
                                 top = 10.dp,
                                 end = 20.dp,
                                 bottom = 10.dp
-                            ))
+                            )
+                        )
                         "reference" -> InsightsDetailCard(
                             header = part.reference.title,
                             description = part.reference.description,

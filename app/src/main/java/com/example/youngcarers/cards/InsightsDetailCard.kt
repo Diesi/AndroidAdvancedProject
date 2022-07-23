@@ -24,7 +24,13 @@ import com.example.youngcarers.R
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun InsightsDetailCard(header: String, description: String, image: Int, navController: NavHostController, url: String) {
+fun InsightsDetailCard(
+    header: String,
+    description: String,
+    image: Int,
+    navController: NavHostController,
+    url: String
+) {
 
     val uriHandler = LocalUriHandler.current
 
@@ -35,9 +41,9 @@ fun InsightsDetailCard(header: String, description: String, image: Int, navContr
             .wrapContentHeight()
             .clip(RoundedCornerShape(15.dp)),
         onClick = {
-            if (url != "null"){
+            if (url != "null") {
                 uriHandler.openUri(url)
-            }else{
+            } else {
                 navController.navigate(NavRoutes.InsightsDetail.route + "/0")
             }
         },

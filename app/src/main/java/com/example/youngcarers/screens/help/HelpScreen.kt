@@ -40,74 +40,80 @@ fun HelpScreen(
     ) {
 
         Column {
-        /*Column {
-            insights.forEachIndexed { index, insight ->
-                Button(onClick = {
-                    navigateToDetail(index)
-                }) {
-                    Text(text = insight.question)
+            /*Column {
+                insights.forEachIndexed { index, insight ->
+                    Button(onClick = {
+                        navigateToDetail(index)
+                    }) {
+                        Text(text = insight.question)
+                    }
                 }
-            }
-        }*/
+            }*/
 
-        val helpList = helps
+            val helpList = helps
 
-        LazyColumn(
-            Modifier.fillMaxWidth(),
-            contentPadding = PaddingValues(16.dp)
-        ) {
-            item {
+            LazyColumn(
+                Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(16.dp)
+            ) {
+                item {
 
-                Text(
-                    helpHeaderTxt,
-                    color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
-                    fontSize = 35.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(start = 20.dp, top = 60.dp)
-                )//TODO: txt from api
-                Text(
-                    helpBodyTxt,
-                    modifier = Modifier.padding(
-                        start = 20.dp,
-                        top = 10.dp,
-                        end = 20.dp,
-                        bottom = 10.dp
-                    )
-                )//TODO: txt from api
-
-            }
-
-            items(helpList) { help ->
-                InsightsDetailCard(header = help.header, description = help.description, image = help.imageRes , navController = navController, url = "null")
-            }
-           /* insights.forEach { part ->
-                InsightsDetailCard(header = part.question, description = help.de, image = , navController = )
-            }*/ //TODO when api is ready
-
-            item {
-                Text(
-                    helpBodyBottom,
-                    modifier = Modifier
-                        .padding(
-                            top = 40.dp,
-                            start = 40.dp,
-                            end = 40.dp
+                    Text(
+                        helpHeaderTxt,
+                        color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                        fontSize = 35.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(start = 20.dp, top = 60.dp)
+                    )//TODO: txt from api
+                    Text(
+                        helpBodyTxt,
+                        modifier = Modifier.padding(
+                            start = 20.dp,
+                            top = 10.dp,
+                            end = 20.dp,
+                            bottom = 10.dp
                         )
-                )
+                    )//TODO: txt from api
 
-                Icon(
-                    imageVector = Icons.Filled.ArrowBack,
-                    tint = colorDarkRed,
-                    contentDescription = "ArrowToSymbol",
-                    modifier = Modifier
-                        .padding(start = 135.dp, top = 8.dp)
-                        .rotate(-65.0F)
-                        .size(50.dp)
-                )
+                }
+
+                items(helpList) { help ->
+                    InsightsDetailCard(
+                        header = help.header,
+                        description = help.description,
+                        image = help.imageRes,
+                        navController = navController,
+                        url = "null"
+                    )
+                }
+                /* insights.forEach { part ->
+                     InsightsDetailCard(header = part.question, description = help.de, image = , navController = )
+                 }*/ //TODO when api is ready
+
+                item {
+                    Text(
+                        helpBodyBottom,
+                        modifier = Modifier
+                            .padding(
+                                top = 40.dp,
+                                start = 40.dp,
+                                end = 40.dp
+                            )
+                    )
+
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBack,
+                        tint = colorDarkRed,
+                        contentDescription = "ArrowToSymbol",
+                        modifier = Modifier
+                            .padding(start = 135.dp, top = 8.dp)
+                            .rotate(-65.0F)
+                            .size(50.dp)
+                    )
+                }
+
+
             }
-
-
-        }
         }
     }
 }

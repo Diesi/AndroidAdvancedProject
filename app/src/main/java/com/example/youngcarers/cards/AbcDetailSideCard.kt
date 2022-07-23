@@ -59,7 +59,7 @@ fun AbcDetailSideCard(header: String, description: String, image: Int, url: Stri
                     modifier = Modifier
                         .padding(8.dp)
                         .fillMaxWidth(),
-                    )
+                )
 
             }
             Text(

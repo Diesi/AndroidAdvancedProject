@@ -58,13 +58,13 @@ fun AboutScreen() {
                 "accessibility" -> txt(part.title, part.content)
                 "gdpr" -> txt(part.title, part.content)
             }
-            
+
         }
     }
 }
 
 @Composable
-fun txt(title: String, content: String){
+fun txt(title: String, content: String) {
     Text(
         text = title,
         color = colorDarkRed,//colorResource(id = com.example.youngcarers.R.color.yc_red_dark),

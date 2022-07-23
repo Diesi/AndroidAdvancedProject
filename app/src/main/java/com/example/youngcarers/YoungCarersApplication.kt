@@ -11,7 +11,7 @@ class YoungCarersApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // Start Koin
-        startKoin{
+        startKoin {
             androidLogger()
             androidContext(this@YoungCarersApplication)
             modules(appModule)

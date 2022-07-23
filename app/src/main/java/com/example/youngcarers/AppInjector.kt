@@ -13,8 +13,6 @@ val appModule = module {
 //    single { APIService.getInstance() }
 
     // single instance of HelloRepository
-//    singleOf(::DataRepositoryImpl) { bind<DataRepository>() }
-
     single<DataRepository> {
         DataRepositoryImpl()
     }

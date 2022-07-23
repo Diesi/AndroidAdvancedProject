@@ -72,9 +72,11 @@ fun EmergencyScreen(
 
 
 
-            Column(modifier = Modifier
-                .fillMaxWidth()) {
-                    for (numbers in getTelList()){
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    for (numbers in getTelList()) {
                         EmergencyNumberCard(header = numbers.header)
                     }
                 }
@@ -92,7 +94,13 @@ fun EmergencyScreen(
                 )
             }
             items(emgList) { emg ->
-                InsightsDetailCard(emg.header, emg.description, emg.imageRes,navController, "https://www.linz.at/notfall.php")
+                InsightsDetailCard(
+                    emg.header,
+                    emg.description,
+                    emg.imageRes,
+                    navController,
+                    "https://www.linz.at/notfall.php"
+                )
                 //TODO: add url from api
             }
 

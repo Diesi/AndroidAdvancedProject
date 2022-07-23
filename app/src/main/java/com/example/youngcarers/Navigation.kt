@@ -34,10 +34,10 @@ fun Navigation(navController: NavHostController) {
 
         // Insights Page
         composable(NavigationItem.Help.route) {
-                HelpScreen(
-                    navigateToDetail = ::navigateToInsightDetail,
-                    navController
-                ) // TODO: Remove this, not needed any more due to function passing
+            HelpScreen(
+                navigateToDetail = ::navigateToInsightDetail,
+                navController
+            ) // TODO: Remove this, not needed any more due to function passing
         }
 
         // Categories Page
@@ -55,7 +55,7 @@ fun Navigation(navController: NavHostController) {
 
         // About Page
         composable(NavigationItem.About.route) {
-                AboutScreen()
+            AboutScreen()
         }
 
         // Insight Detail Page
