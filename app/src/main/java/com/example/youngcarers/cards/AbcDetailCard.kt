@@ -15,15 +15,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.youngcarers.NavRoutes
 import com.example.youngcarers.data.api.models.Abc
+import com.example.youngcarers.data.api.models.Category
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun AbcDetailCard(data: Abc, navController: NavHostController, onClick: (Int) -> Unit) {
+fun AbcDetailCard(
+    data: Abc,
+    navController: NavHostController,
+    onClick: (Int) -> Unit
+) {
 
     var viewTitle = data.name
 
@@ -66,4 +73,15 @@ fun AbcDetailCard(data: Abc, navController: NavHostController, onClick: (Int) ->
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun AbcDetailCardPreview() {
+    val data = Abc(emptyList(), "ABC Info...", "ABC Name", "ABC Title")
+    AbcDetailCard(
+        data = data,
+        navController = rememberNavController(navigators = emptyArray()),
+        onClick = {}
+    )
 }

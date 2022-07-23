@@ -15,13 +15,21 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
 import com.example.youngcarers.R
+import com.example.youngcarers.data.api.models.Abc
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun AbcDetailSideCard(header: String, description: String, image: Int, url: String) {
+fun AbcDetailSideCard(
+    header: String,
+    description: String,
+    image: Int,
+    url: String
+) {
 
     val uriHandler = LocalUriHandler.current
     Card(
@@ -68,8 +76,16 @@ fun AbcDetailSideCard(header: String, description: String, image: Int, url: Stri
                 modifier = Modifier.padding(start = 30.dp, bottom = 15.dp, end = 30.dp)
             )
         }
-
-
     }
 }
 
+@Preview
+@Composable
+fun AbcDetailSideCardPreview() {
+    AbcDetailSideCard(
+        header = "Header",
+        description = "Description",
+        image = 0,
+        url = "www.google.com"
+    )
+}

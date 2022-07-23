@@ -15,9 +15,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.youngcarers.NavRoutes
 import com.example.youngcarers.R
 
@@ -71,16 +73,13 @@ fun InsightsDetailCard(
 
                     )
                 Text(
-
                     text = header,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
                         .padding(8.dp)
                         .fillMaxWidth(),
-
                     )
-
             }
             Text(
                 text = description,
@@ -88,7 +87,17 @@ fun InsightsDetailCard(
                 modifier = Modifier.padding(start = 30.dp, bottom = 15.dp, end = 30.dp)
             )
         }
-
     }
+}
 
+@Preview
+@Composable
+fun InsightDetailCardPreview() {
+    InsightsDetailCard(
+        header = "Header",
+        description = "Description",
+        image = 0,
+        navController = rememberNavController(navigators = emptyArray()),
+        url = "www.google.com"
+    )
 }

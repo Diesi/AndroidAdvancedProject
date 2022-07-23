@@ -71,7 +71,7 @@ fun EmergencyScreen(
                         .fillMaxWidth()
                 ) {
                     for (number in getPhoneList()) {
-                        EmergencyNumberCard(header = number.header)
+                        EmergencyNumberCard(title = number.header)
                     }
                 }
             }
