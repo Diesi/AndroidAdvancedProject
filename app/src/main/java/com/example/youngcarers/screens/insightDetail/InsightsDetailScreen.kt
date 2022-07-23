@@ -37,14 +37,14 @@ fun InsightsDetailScreen(
 
     val viewModel = getViewModel<HelpScreenViewModel>()
     val insights: List<Insight> by viewModel.insights.collectAsState(initial = emptyList())
-    val insight: Insight =  insights[questionIndex]
+    val insight: Insight? = if (insights.isEmpty()) null else insights[questionIndex]
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
                         //*Error without txt ?*//
-                        insight.question
+                        insight?.question
                 },
             navigationIcon = {
                 IconButton(
@@ -65,33 +65,37 @@ fun InsightsDetailScreen(
         Column(modifier = Modifier
             .verticalScroll(rememberScrollState())) {
 
-            Text(
-                text = insight.question,
-                color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
-                fontSize = 25.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(start = 20.dp, top = 60.dp)
-            )
+            if (insight != null) {
+                Text(
+                    text = insight.question,
+                    color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                    fontSize = 25.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(start = 20.dp, top = 60.dp)
+                )
+            }
             
             // render parts based on their type
-            insight.content.forEach { part ->
-                when (part.type) {
-                    "text" -> Text(text = part.text,
-                        modifier = Modifier.padding(
-                        start = 20.dp,
-                        top = 10.dp,
-                        end = 20.dp,
-                        bottom = 10.dp
-                    ))
-                    "reference" -> InsightsDetailCard(
-                        header = part.reference.title,
-                        description = part.reference.description,
-                        image = R.drawable.picture,
-                        navController,
-                        url = part.reference.url
-                    ) // Todo: Replace with real image URL once provided by the backend
-                    "category" -> CategoryDetailCard(part.category, navController)
-                    else -> throw IllegalArgumentException("part.type ${part.type} not allowed, please provide either text, reference or category")
+            if (insight != null) {
+                insight.content.forEach { part ->
+                    when (part.type) {
+                        "text" -> Text(text = part.text,
+                            modifier = Modifier.padding(
+                                start = 20.dp,
+                                top = 10.dp,
+                                end = 20.dp,
+                                bottom = 10.dp
+                            ))
+                        "reference" -> InsightsDetailCard(
+                            header = part.reference.title,
+                            description = part.reference.description,
+                            image = R.drawable.picture,
+                            navController,
+                            url = part.reference.url
+                        ) // Todo: Replace with real image URL once provided by the backend
+                        "category" -> CategoryDetailCard(part.category, navController)
+                        else -> throw IllegalArgumentException("part.type ${part.type} not allowed, please provide either text, reference or category")
+                    }
                 }
             }
         }
