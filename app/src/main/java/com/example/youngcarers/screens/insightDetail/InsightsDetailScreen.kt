@@ -1,6 +1,7 @@
 package com.example.youngcarers.screens
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
@@ -18,12 +19,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.youngcarers.R
+import com.example.youngcarers.cards.CategoryDetailCard
+import com.example.youngcarers.cards.InsightsDetailCard
 import com.example.youngcarers.data.api.models.Insight
-import com.example.youngcarers.ui.theme.*
-import com.example.youngcarers.cards.*
-import com.example.youngcarers.screens.abc.AbcViewModel
 import com.example.youngcarers.screens.help.HelpScreenViewModel
-import com.example.youngcarers.screens.insightDetail.InsightsDetailViewModel
+import com.example.youngcarers.ui.theme.colorBackground
+import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
 //ToDo: Insights get data dynamic in random order, text, reference,
@@ -32,6 +33,7 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun InsightsDetailScreen(
     navController: NavHostController,
+    onClick: (Int) -> Unit,
     questionIndex: Int
 ) {
 
@@ -95,7 +97,7 @@ fun InsightsDetailScreen(
                             header = part.reference.title,
                             description = part.reference.description,
                             image = R.drawable.picture,
-                            navController,
+                            onClick = onClick,
                             url = part.reference.url
                         ) // Todo: Replace with real image URL once provided by the backend
                         "category" -> CategoryDetailCard(part.category, navController)
@@ -115,6 +117,7 @@ fun InsightsDetailScreenPreview() {
 
     InsightsDetailScreen(
         navController = NavHostController(context = LocalContext.current),
+        onClick = {},
         questionIndex
     )
 

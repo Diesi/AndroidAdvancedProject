@@ -18,18 +18,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import com.example.youngcarers.NavRoutes
 import com.example.youngcarers.data.api.models.Abc
-import com.example.youngcarers.data.api.models.Category
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun AbcDetailCard(
     data: Abc,
-    navController: NavHostController,
-    onClick: (Int) -> Unit
+    onClick: (questionIndex: String) -> Unit
 ) {
 
     var viewTitle = data.name
@@ -43,11 +38,7 @@ fun AbcDetailCard(
             backgroundColor = Color.White,
             modifier = Modifier.fillMaxWidth(),
             onClick = {
-                //Todo "/" error handling
-                if (viewTitle.contains("/")) {
-                    viewTitle = viewTitle.replace("/", "")
-                }
-                navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
+                onClick(data.name)
             }
         ) {
             Row(
@@ -81,7 +72,6 @@ fun AbcDetailCardPreview() {
     val data = Abc(emptyList(), "ABC Info...", "ABC Name", "ABC Title")
     AbcDetailCard(
         data = data,
-        navController = rememberNavController(navigators = emptyArray()),
         onClick = {}
     )
 }

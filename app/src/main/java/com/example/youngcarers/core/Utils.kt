@@ -60,6 +60,12 @@ const val about_body = "Hallo. Ich bin ein kleiner Blindtext. Und zwar schon so 
             EMERGENCY SCREEN
 ========================================= */
 
+const val emergency_title = "Im Notfall"
+const val emergency_quick_help = "Hier findest du die wichtigstn Dinge bei einem Notfall. Schnelle Hilfe und wichtige Kontakte."
+const val emergency_intro_calls = "Wenns mal wirklich schnell gehen muss. Die wichtigsten Rufnummern:"
+const val emergency_title_preparation = "Zur Vorbereitung"
+const val emergency_url = "https://www.linz.at/notfall.php"
+
 data class Emergency(
     val id: Int,
     val header: String,

@@ -9,9 +9,9 @@ import androidx.navigation.navArgument
 import com.example.youngcarers.screens.DetailScreen
 import com.example.youngcarers.screens.InsightsDetailScreen
 
+
 @Composable
 fun Navigation(navController: NavHostController) {
-
 
     fun navigateToInsightDetail(questionIndex: Int) {
         navController.navigate(NavRoutes.InsightsDetail.route + "/$questionIndex")
@@ -30,22 +30,24 @@ fun Navigation(navController: NavHostController) {
         // Insights Page
         composable(NavigationItem.Help.route) {
             HelpScreen(
-                navigateToDetail = ::navigateToInsightDetail,
-                navController
+                navigateToDetail = {
+                        questionIndex: Int -> navController.navigate(NavRoutes.InsightsDetail.route + "/$questionIndex")
+                }
             ) // TODO: Remove this, not needed any more due to function passing
         }
 
         // Categories Page
         composable(NavigationItem.ABC.route) {
             AbcScreen(
-                navigateToDetail = ::navigateToAbcDetail,
-                navController
+                navigateToDetail = {
+                    abcEntryName: String -> navController.navigate(NavRoutes.Detail.route + "/$abcEntryName")
+                }
             )
         }
 
         // Emergency Page
         composable(NavigationItem.Emergency.route) {
-            EmergencyScreen(navController)
+            EmergencyScreen( onClick = { navController.navigate(NavRoutes.InsightsDetail.route + "/0") } )
         }
 
         // About Page
@@ -59,7 +61,12 @@ fun Navigation(navController: NavHostController) {
             arguments = listOf(navArgument("questionIndex") { type = NavType.IntType })
         ) { backStackEntry ->
             val questionIndex = backStackEntry.arguments?.getInt("questionIndex")!!
-            InsightsDetailScreen(navController, questionIndex)
+            InsightsDetailScreen(
+                navController,
+                onClick = {
+                    questionIndex: Int -> navController.navigate(NavRoutes.InsightsDetail.route + "/$questionIndex")
+                },
+                questionIndex)
         }
 
         // Category Detail Page

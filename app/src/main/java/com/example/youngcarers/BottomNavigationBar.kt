@@ -11,8 +11,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.youngcarers.ui.theme.colorBackground
-import com.example.youngcarers.ui.theme.*
+import com.example.youngcarers.ui.theme.colorDarkRed
+import com.example.youngcarers.ui.theme.colorGrayToolbar
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {

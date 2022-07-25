@@ -18,9 +18,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import com.example.youngcarers.NavRoutes
 import com.example.youngcarers.R
 
 
@@ -30,7 +27,7 @@ fun InsightsDetailCard(
     header: String,
     description: String,
     image: Int,
-    navController: NavHostController,
+    onClick: (questionIndex: Int) -> Unit,
     url: String
 ) {
 
@@ -46,7 +43,7 @@ fun InsightsDetailCard(
             if (url != "null") {
                 uriHandler.openUri(url)
             } else {
-                navController.navigate(NavRoutes.InsightsDetail.route + "/0")
+                onClick(0)
             }
         },
         shape = MaterialTheme.shapes.medium,
@@ -97,7 +94,7 @@ fun InsightDetailCardPreview() {
         header = "Header",
         description = "Description",
         image = 0,
-        navController = rememberNavController(navigators = emptyArray()),
+        onClick = {},
         url = "www.google.com"
     )
 }
