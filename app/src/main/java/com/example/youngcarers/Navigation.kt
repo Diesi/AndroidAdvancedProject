@@ -37,7 +37,10 @@ fun Navigation(navController: NavHostController) {
 
         // Categories Page
         composable(NavigationItem.ABC.route) {
-            AbcScreen( navigateToDetail = ::navigateToAbcDetail )
+            AbcScreen(
+                navigateToDetail = ::navigateToAbcDetail,
+                navController
+            )
         }
 
         // Emergency Page
