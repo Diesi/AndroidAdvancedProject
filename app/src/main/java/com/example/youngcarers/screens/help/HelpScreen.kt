@@ -3,7 +3,9 @@ package com.example.youngcarers
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -14,12 +16,15 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
-import com.example.youngcarers.core.*
+import com.example.youngcarers.cards.InsightsDetailCard
+import com.example.youngcarers.core.help_body
+import com.example.youngcarers.core.help_body_hint
+import com.example.youngcarers.core.help_title
+import com.example.youngcarers.core.helps
 import com.example.youngcarers.data.api.models.Insight
-import com.example.youngcarers.ui.theme.*
-import com.example.youngcarers.cards.*
 import com.example.youngcarers.screens.help.HelpScreenViewModel
+import com.example.youngcarers.ui.theme.colorBackground
+import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
 

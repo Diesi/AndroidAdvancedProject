@@ -14,12 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.youngcarers.core.*
-import com.example.youngcarers.data.api.models.Abc
-import com.example.youngcarers.ui.theme.*
+import com.example.youngcarers.core.abc_title
+import com.example.youngcarers.core.about_body
 import com.example.youngcarers.data.api.models.Metadata
-import com.example.youngcarers.screens.abc.AbcViewModel
 import com.example.youngcarers.screens.about.AboutViewModel
+import com.example.youngcarers.ui.theme.colorBackground
+import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
 

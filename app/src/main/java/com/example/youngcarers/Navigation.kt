@@ -6,8 +6,6 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.youngcarers.data.api.models.YoungCarersModel
-import com.example.youngcarers.data.api.service.APIService
 import com.example.youngcarers.screens.DetailScreen
 import com.example.youngcarers.screens.InsightsDetailScreen
 
