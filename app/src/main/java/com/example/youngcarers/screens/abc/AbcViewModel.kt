@@ -22,4 +22,8 @@ class AbcViewModel(
         }
     }
 
+    fun navigateToAbcDetail() {
+        print("Navigate to ABC Detail")
+    }
+
 }

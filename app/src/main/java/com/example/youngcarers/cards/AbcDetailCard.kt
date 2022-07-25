@@ -28,11 +28,8 @@ import com.example.youngcarers.data.api.models.Category
 @Composable
 fun AbcDetailCard(
     data: Abc,
-    navController: NavHostController,
-    onClick: (Int) -> Unit
+    onClick: (questionIndex: String) -> Unit
 ) {
-
-    var viewTitle = data.name
 
     Row(
         modifier = Modifier
@@ -43,11 +40,7 @@ fun AbcDetailCard(
             backgroundColor = Color.White,
             modifier = Modifier.fillMaxWidth(),
             onClick = {
-                //Todo "/" error handling
-                if (viewTitle.contains("/")) {
-                    viewTitle = viewTitle.replace("/", "")
-                }
-                navController.navigate(NavRoutes.Detail.route + "/$viewTitle")
+                onClick(data.name)
             }
         ) {
             Row(
@@ -81,7 +74,6 @@ fun AbcDetailCardPreview() {
     val data = Abc(emptyList(), "ABC Info...", "ABC Name", "ABC Title")
     AbcDetailCard(
         data = data,
-        navController = rememberNavController(navigators = emptyArray()),
         onClick = {}
     )
 }
