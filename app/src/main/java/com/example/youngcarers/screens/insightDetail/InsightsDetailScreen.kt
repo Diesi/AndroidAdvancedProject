@@ -32,6 +32,7 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun InsightsDetailScreen(
     navController: NavHostController,
+    onClick: (Int) -> Unit,
     questionIndex: Int
 ) {
 
@@ -95,7 +96,7 @@ fun InsightsDetailScreen(
                             header = part.reference.title,
                             description = part.reference.description,
                             image = R.drawable.picture,
-                            navController,
+                            onClick = onClick,
                             url = part.reference.url
                         ) // Todo: Replace with real image URL once provided by the backend
                         "category" -> CategoryDetailCard(part.category, navController)
@@ -115,6 +116,7 @@ fun InsightsDetailScreenPreview() {
 
     InsightsDetailScreen(
         navController = NavHostController(context = LocalContext.current),
+        onClick = {},
         questionIndex
     )
 

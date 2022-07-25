@@ -20,8 +20,7 @@ import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun AbcScreen(
-    navigateToDetail: (questionIndex: String) -> Unit,
-    navController: NavHostController
+    navigateToDetail: (questionIndex: String) -> Unit
 ) {
 
     val viewModel = getViewModel<AbcViewModel>()
@@ -52,9 +51,7 @@ fun AbcScreen(
         )//TODO: backend api
 
         articles.forEach { article ->
-            AbcDetailCard(data = article, navController) { i ->
-                selectedIndex = i
-            }
+            AbcDetailCard(data = article, onClick = {  })
         }
     }
 

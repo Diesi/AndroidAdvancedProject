@@ -30,7 +30,7 @@ fun InsightsDetailCard(
     header: String,
     description: String,
     image: Int,
-    navController: NavHostController,
+    onClick: (questionIndex: Int) -> Unit,
     url: String
 ) {
 
@@ -46,7 +46,7 @@ fun InsightsDetailCard(
             if (url != "null") {
                 uriHandler.openUri(url)
             } else {
-                navController.navigate(NavRoutes.InsightsDetail.route + "/0")
+                onClick(0)
             }
         },
         shape = MaterialTheme.shapes.medium,
@@ -97,7 +97,7 @@ fun InsightDetailCardPreview() {
         header = "Header",
         description = "Description",
         image = 0,
-        navController = rememberNavController(navigators = emptyArray()),
+        onClick = {},
         url = "www.google.com"
     )
 }

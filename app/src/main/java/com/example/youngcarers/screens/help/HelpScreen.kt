@@ -26,7 +26,6 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun HelpScreen(
     navigateToDetail: (questionIndex: Int) -> Unit,
-    navController: NavHostController
 ) {
 
     val viewModel = getViewModel<HelpScreenViewModel>()
@@ -81,7 +80,7 @@ fun HelpScreen(
                         header = help.header,
                         description = help.description,
                         image = help.imageRes,
-                        navController = navController,
+                        onClick = navigateToDetail,
                         url = "null"
                     )
                 }

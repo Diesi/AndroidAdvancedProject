@@ -22,7 +22,7 @@ import org.koin.androidx.compose.getViewModel
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EmergencyScreen(
-    navController: NavHostController
+    onClick: (Int) -> Unit
 ) {
 
     val viewModel = getViewModel<EmergencyViewModel>()
@@ -92,7 +92,7 @@ fun EmergencyScreen(
                     emergency.header,
                     emergency.description,
                     emergency.imageRes,
-                    navController,
+                    onClick = onClick,
                     "https://www.linz.at/notfall.php"
                 )
                 //TODO: add url from api
@@ -106,7 +106,7 @@ fun EmergencyScreen(
 @Composable
 fun EmergencyScreenPreview() {
     EmergencyScreen(
-        navController = NavHostController(context = LocalContext.current)
+        onClick = {}
     )
 }
 
