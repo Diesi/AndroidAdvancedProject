@@ -13,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -40,6 +41,7 @@ fun HelpScreen(
     Scaffold(
         backgroundColor = colorBackground,
         modifier = Modifier.padding(bottom = 55.dp)
+            .testTag("helpScreen")
     ) {
 
         Column {

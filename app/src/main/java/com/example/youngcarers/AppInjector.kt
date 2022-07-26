@@ -1,5 +1,6 @@
 package com.example.youngcarers
 
+import com.example.youngcarers.data.api.service.APIService
 import com.example.youngcarers.screens.abc.AbcViewModel
 import com.example.youngcarers.screens.about.AboutViewModel
 import com.example.youngcarers.screens.detail.DetailViewModel
@@ -14,7 +15,7 @@ val appModule = module {
 
     // single instance of HelloRepository
     single<DataRepository> {
-        DataRepositoryImpl()
+        DataRepositoryImpl(APIService.getInstance())
     }
 
     // MyViewModel ViewModel
