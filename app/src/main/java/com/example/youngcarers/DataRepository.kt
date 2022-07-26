@@ -7,10 +7,9 @@ interface DataRepository {
     suspend fun loadContent(): YoungCarersModel?
 }
 
-class DataRepositoryImpl : DataRepository {
+class DataRepositoryImpl(private val apiService: APIService) : DataRepository {
 
     override suspend fun loadContent(): YoungCarersModel? {
-        val apiService = APIService.getInstance()
         return apiService
             .getContent()
             .body()

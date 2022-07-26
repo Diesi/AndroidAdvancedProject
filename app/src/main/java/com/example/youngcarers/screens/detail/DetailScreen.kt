@@ -21,6 +21,7 @@ import com.example.youngcarers.cards.AbcDetailSideCard
 import com.example.youngcarers.screens.detail.DetailViewModel
 import com.example.youngcarers.ui.theme.*
 import org.koin.androidx.compose.getViewModel
+import com.example.youngcarers.core.help_title as help_title1
 
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -80,7 +81,7 @@ fun DetailScreen(
                             )
                         } else {
                             Text(
-                                help_title,
+                                help_title1,
                                 color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
                                 fontSize = 35.sp,
                                 fontWeight = FontWeight.Bold,
