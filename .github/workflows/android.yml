@@ -2,14 +2,14 @@ name: Android CI
 
 on:
   push:
-    branches: [ "develop", "testing" ]
+    branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - name: checkout
