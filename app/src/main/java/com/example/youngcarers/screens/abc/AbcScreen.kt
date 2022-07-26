@@ -9,6 +9,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -40,6 +41,7 @@ fun AbcScreen(
             .background(colorBackground)
             .verticalScroll(rememberScrollState())
             .padding(bottom = 80.dp)
+            .testTag("abcScreen")
     ) {
         Text(
             abc_title,
