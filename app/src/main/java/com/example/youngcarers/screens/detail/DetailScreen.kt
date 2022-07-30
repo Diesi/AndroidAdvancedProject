@@ -10,11 +10,13 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.youngcarers.R
 import com.example.youngcarers.core.*
 import com.example.youngcarers.data.api.models.Abc
 import com.example.youngcarers.cards.AbcDetailSideCard
@@ -50,19 +52,19 @@ fun DetailScreen(
                 navigationIcon = {
                     IconButton(
                         onClick = {
-                            navController.navigateUp()//navigate(NavigationItem.Help.route)
+                            navController.navigateUp()
                         }
                     )
                     {
                         Icon(Icons.Filled.ArrowBack, "backIcon")
                     }
                 },
-                backgroundColor = colorDarkRed,
+                backgroundColor = colorResource(id = R.color.yc_red_dark),
                 contentColor = Color.White,
                 elevation = 10.dp
             )
         },
-        backgroundColor = colorBackground,
+        backgroundColor = colorResource(id = R.color.yc_background),
         modifier = Modifier.padding(bottom = 55.dp)
     ) {
         LazyColumn(
@@ -79,15 +81,15 @@ fun DetailScreen(
                         if (viewTitle != null) {
                             Text(
                                 "$viewTitle",
-                                color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                                color = colorResource(id = R.color.yc_red_dark),
                                 fontSize = 35.sp,
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.padding(start = 20.dp, top = 60.dp)
                             )
                         } else {
                             Text(
-                                help_title1,
-                                color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                                R.string.detail_title.toString(),
+                                color = colorResource(id = R.color.yc_red_dark),
                                 fontSize = 35.sp,
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.padding(start = 20.dp, top = 60.dp)

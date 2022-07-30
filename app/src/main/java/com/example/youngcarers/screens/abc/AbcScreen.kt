@@ -10,13 +10,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.youngcarers.cards.AbcDetailCard
-import com.example.youngcarers.core.abc_body
-import com.example.youngcarers.core.abc_title
 import com.example.youngcarers.data.api.models.Abc
 import com.example.youngcarers.screens.abc.AbcViewModel
 import com.example.youngcarers.ui.theme.colorBackground
@@ -35,22 +33,20 @@ fun AbcScreen(
 
     val viewModel = getViewModel<AbcViewModel>()
 
-    var selectedIndex by remember { mutableStateOf(-1) }
-
     val articles: List<Abc> by viewModel.articles.collectAsState(initial = emptyList())
 
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorBackground)
+            .background(colorResource(id = R.color.yc_background))
             .verticalScroll(rememberScrollState())
             .padding(bottom = 80.dp)
             .testTag("abcScreen")
     ) {
         Text(
             R.string.abc_title.toString(),
-            color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+            color =  colorResource(id = R.color.yc_red_dark),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(start = 20.dp, top = 60.dp)

@@ -25,7 +25,7 @@ fun Navigation(navController: NavHostController) {
         navController.navigate(NavRoutes.Detail.route + "/$abcEntryName")
     }
 
-
+// mainViewModel.content?.let { content -> // TODO
     NavHost(
         navController = navController,
         startDestination = NavigationItem.Help.route
@@ -36,7 +36,8 @@ fun Navigation(navController: NavHostController) {
             HelpScreen(
                 navigateToDetail = {
                         questionIndex: Int -> navController.navigate(NavRoutes.InsightsDetail.route + "/$questionIndex")
-                }
+                },
+                navController
             ) // TODO: Remove this, not needed any more due to function passing
         }
 
@@ -51,7 +52,7 @@ fun Navigation(navController: NavHostController) {
 
         // Emergency Page
         composable(NavigationItem.Emergency.route) {
-            EmergencyScreen( onClick = { navController.navigate(NavRoutes.InsightsDetail.route + "/0") } )
+            EmergencyScreen( navController )
         }
 
         // About Page

@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -59,18 +60,18 @@ fun InsightsDetailScreen(
                 navigationIcon = {
                     IconButton(
                         onClick = {
-                            navController.navigateUp()//navigate(NavigationItem.Help.route)
+                            navController.navigateUp()
                         }
                     ) {
                         Icon(Icons.Filled.ArrowBack, "backIcon")
                     }
                 },
-                backgroundColor = colorDarkRed,
+                backgroundColor = colorResource(id = R.color.yc_red_dark),
                 contentColor = Color.White,
                 elevation = 10.dp
             )
         },
-        backgroundColor = colorBackground,
+        backgroundColor = colorResource(id = R.color.yc_background),
         modifier = Modifier.padding(bottom = 55.dp)
             .testTag("insightsDetailScreen")
     ) {
@@ -82,7 +83,7 @@ fun InsightsDetailScreen(
             if (insight != null) {
                 Text(
                     text = insight.question,
-                    color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                    color = colorResource(id = R.color.yc_red_dark),
                     fontSize = 25.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(start = 20.dp, top = 60.dp)
@@ -105,9 +106,10 @@ fun InsightsDetailScreen(
                         "reference" -> InsightsDetailCard(
                             header = part.reference.title,
                             description = part.reference.description,
-                            image = R.drawable.picture,
-                            onClick = onClick,
-                            url = part.reference.url
+                            image = part.reference.previewImageUrl,
+                            navController,
+                            url = part.reference.url,
+                            index = 0
                         ) // Todo: Replace with real image URL once provided by the backend
                         "category" -> CategoryDetailCard(part.category, navController)
                         else -> throw IllegalArgumentException("part.type ${part.type} not allowed, please provide either text, reference or category")

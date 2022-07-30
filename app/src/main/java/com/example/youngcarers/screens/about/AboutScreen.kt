@@ -11,9 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import com.example.youngcarers.core.abc_title
 import com.example.youngcarers.core.about_body
 import com.example.youngcarers.data.api.models.Metadata
@@ -35,22 +37,22 @@ fun AboutScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorBackground)
+            .background(colorResource(id = R.color.yc_background))
             .verticalScroll(rememberScrollState())
             .padding(bottom = 80.dp)
 
     ) {
 
         Text(
-            abc_title,
-            color = colorDarkRed, //colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
+            R.string.about_title.toString(),
+            color = colorResource(id = R.color.yc_red_dark),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(start = 20.dp, top = 60.dp)
         ) //TODO: backend api
 
         Text(
-            about_body,
+            R.string.about_body.toString(),
             modifier = Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)
         ) //TODO: backend api
 
@@ -70,7 +72,7 @@ fun AboutScreen() {
 fun txt(title: String, content: String) {
     Text(
         text = title,
-        color = colorDarkRed,//colorResource(id = com.example.youngcarers.R.color.yc_red_dark),
+        color = colorResource(id = R.color.yc_red_dark),
         fontSize = 26.sp,
         modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp)
     )

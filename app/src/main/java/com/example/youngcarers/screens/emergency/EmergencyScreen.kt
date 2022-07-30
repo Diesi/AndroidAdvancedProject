@@ -11,33 +11,33 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.youngcarers.cards.EmergencyNumberCard
 import com.example.youngcarers.cards.InsightsDetailCard
 import com.example.youngcarers.core.*
 import com.example.youngcarers.screens.emergency.EmergencyViewModel
-import com.example.youngcarers.ui.theme.colorBackground
-import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
 /**
- * @param onClick onClick listener
+ * @param navController navController to another page
  * Generate the emergency page with title, body, phone number cards and insights detail cards
  */
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EmergencyScreen(
-    onClick: (Int) -> Unit
+    navController: NavHostController
 ) {
 
     val viewModel = getViewModel<EmergencyViewModel>()
 
     Scaffold(
-        backgroundColor = colorBackground,
+        backgroundColor = colorResource(id = R.color.yc_background),
         modifier = Modifier.padding(bottom = 55.dp)
     ) {
         LazyColumn(
@@ -48,14 +48,14 @@ fun EmergencyScreen(
             item {
 
                 Text(
-                    emergency_title,
-                    color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
+                    R.string.emergency_title.toString(),
+                    color = colorResource(id = R.color.yc_red_dark),
                     fontSize = 35.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(start = 20.dp, top = 60.dp)
                 )
                 Text(
-                    emergency_quick_help,
+                    R.string.emergency_quick_help.toString(),
                     modifier = Modifier.padding(
                         start = 20.dp,
                         top = 10.dp,
@@ -64,7 +64,7 @@ fun EmergencyScreen(
                     )
                 )
                 Text(
-                    emergency_intro_calls,
+                    R.string.emergency_intro_calls.toString(),
                     modifier = Modifier
                         .padding(
                             top = 40.dp,
@@ -87,7 +87,7 @@ fun EmergencyScreen(
 
             item {
                 Text(
-                    emergency_title_preparation,
+                    R.string.emergency_title_preparation.toString(),
                     modifier = Modifier
                         .padding(
                             top = 20.dp,
@@ -100,11 +100,12 @@ fun EmergencyScreen(
                 InsightsDetailCard(
                     emergency.header,
                     emergency.description,
-                    emergency.imageRes,
-                    onClick = onClick,
-                    emergency_url
+                    R.string.emergency_img_url.toString(),
+                    navController,
+                    R.string.emergency_url.toString(),
+                    index = 0
                 )
-                //TODO: add url from api
+                //TODO: add urls from api
             }
 
         }
@@ -114,9 +115,9 @@ fun EmergencyScreen(
 @Preview(showBackground = true)
 @Composable
 fun EmergencyScreenPreview() {
-    EmergencyScreen(
-        onClick = {}
-    )
+    /*EmergencyScreen(
+
+    )*/
 }
 
 

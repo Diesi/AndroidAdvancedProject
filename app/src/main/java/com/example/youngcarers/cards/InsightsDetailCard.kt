@@ -39,10 +39,9 @@ import com.example.youngcarers.R
 fun InsightsDetailCard(
     header: String,
     description: String,
-    image: Int,
-    onClick: (questionIndex: Int) -> Unit,
-    url: String,
+    image: String,
     navController: NavHostController,
+    url: String,
     index: Int
 ) {
 
@@ -109,8 +108,7 @@ fun InsightDetailCardPreview() {
     InsightsDetailCard(
         header = "Header",
         description = "Description",
-        image = 0,
-        onClick = {},
+        image = "",
         url = "www.google.com",
         navController = rememberNavController(navigators = emptyArray()),
         index = 0
