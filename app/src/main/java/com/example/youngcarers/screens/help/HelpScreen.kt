@@ -28,6 +28,10 @@ import com.example.youngcarers.ui.theme.colorBackground
 import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
+/**
+ * @param navigateToDetail navController with given int index
+ * Generate the help screen page with title, body and insights detail cards in list form
+ */
 
 @Composable
 fun HelpScreen(

@@ -7,6 +7,10 @@ import com.example.youngcarers.data.api.models.Metadata
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * About view model
+ */
+
 class AboutViewModel(
     private val repository: DataRepository
 ) : ViewModel() {

@@ -1,5 +1,10 @@
 package com.example.youngcarers
 
+
+/**
+ * Navigation Items for routes
+ */
+
 sealed class NavigationItem(
     var route: String,
     var icon: Int,

@@ -7,6 +7,10 @@ import com.example.youngcarers.data.api.models.Abc
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * Abc view model
+ */
+
 class AbcViewModel(
     private val repository: DataRepository
 ) : ViewModel() {

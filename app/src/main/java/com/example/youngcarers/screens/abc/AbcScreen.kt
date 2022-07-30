@@ -23,6 +23,11 @@ import com.example.youngcarers.ui.theme.colorBackground
 import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
+/**
+ * @param navigateToDetail navController with given string index
+ * Generate the abc page with title, body and abc cards in list form
+ */
+
 @Composable
 fun AbcScreen(
     navigateToDetail: (questionIndex: String) -> Unit
@@ -67,8 +72,7 @@ fun AbcScreen(
 @Composable
 fun ABCScreenPreview() {
     /*ABC_Screen(
-        getABCList(),
-        navController = NavHostController(context = LocalContext.current)
+        navigateToDetail = {}
     )*/
 }
 

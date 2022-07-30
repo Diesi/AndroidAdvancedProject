@@ -23,6 +23,11 @@ import com.example.youngcarers.ui.theme.colorBackground
 import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
+/**
+ * @param onClick onClick listener
+ * Generate the emergency page with title, body, phone number cards and insights detail cards
+ */
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EmergencyScreen(

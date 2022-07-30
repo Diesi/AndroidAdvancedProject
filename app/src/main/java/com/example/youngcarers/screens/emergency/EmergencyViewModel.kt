@@ -7,6 +7,10 @@ import com.example.youngcarers.data.api.models.Emergency
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * Emergency view model
+ */
+
 class EmergencyViewModel(
     private val repository: DataRepository
 ) : ViewModel() {

@@ -14,6 +14,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.youngcarers.ui.theme.colorDarkRed
 import com.example.youngcarers.ui.theme.colorGrayToolbar
 
+/**
+ * Generate the bottom navigation bar, with the given items help, abc ,emergency and about
+ */
+
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {
     val items = listOf(

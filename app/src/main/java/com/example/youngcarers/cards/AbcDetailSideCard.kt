@@ -20,6 +20,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.youngcarers.R
 
+/**
+ * @param header header of the detail card
+ * @param description description of the detail card
+ * @param image image for the detail card
+ * @param url Url for the link, when clicking on the card
+ * Here the cards for the abc detail screen are created,
+ * when clicking on a card on the abc screen
+ */
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun AbcDetailSideCard(

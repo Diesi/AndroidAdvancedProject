@@ -2,6 +2,11 @@ package com.example.youngcarers.core
 
 // TODO: Remove this file, when the api is finish
 
+/**
+ * Here are those strings and classes that do not yet come from API.
+ * In the future this will be deleted.
+ */
+
 /* ======================================
                HELP SCREEN
 ========================================= */

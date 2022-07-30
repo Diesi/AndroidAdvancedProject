@@ -6,6 +6,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
+/**
+ * Retrofit api service to get the content from the backend
+ */
+
 interface APIService {
 
     @GET("api/content.json")

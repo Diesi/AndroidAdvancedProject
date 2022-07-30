@@ -3,6 +3,11 @@ package com.example.youngcarers
 import com.example.youngcarers.data.api.models.YoungCarersModel
 import com.example.youngcarers.data.api.service.APIService
 
+/**
+ * Interface for Data repository
+ * Load content from Api
+ */
+
 interface DataRepository {
     suspend fun loadContent(): YoungCarersModel?
 }

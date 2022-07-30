@@ -23,6 +23,11 @@ import com.example.youngcarers.ui.theme.*
 import org.koin.androidx.compose.getViewModel
 import com.example.youngcarers.core.help_title as help_title1
 
+/**
+ * @param navController navController for navigation to another screen
+ * @param viewTitle Given string of screen title
+ * Generate the detail screen page with title, body and dynamic creation of the page given by the backend
+ */
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

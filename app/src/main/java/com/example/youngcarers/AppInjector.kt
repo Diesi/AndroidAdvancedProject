@@ -10,6 +10,10 @@ import com.example.youngcarers.screens.insightDetail.InsightsDetailViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
+/**
+ * App module with repository and view models
+ */
+
 val appModule = module {
 //    single { APIService.getInstance() }
 

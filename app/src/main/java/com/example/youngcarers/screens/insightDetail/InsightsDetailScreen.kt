@@ -30,6 +30,13 @@ import org.koin.androidx.compose.getViewModel
 
 //ToDo: Insights get data dynamic in random order, text, reference,
 
+/**
+ * @param navController navController with given string index
+ * @param onClick onClick listener
+ * @param questionIndex index of the question
+ * Generate the insights detail page with title (question), body and insights parts dynamic by there types
+ */
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun InsightsDetailScreen(

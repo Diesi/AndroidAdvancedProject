@@ -21,6 +21,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.youngcarers.R
 
+/**
+ * @param header header of the detail card
+ * @param description description of the detail card
+ * @param image image for the detail card
+ * @param onClick onClick listener with given string
+ * @param url Url for the link, when clicking on the card
+ * Here the cards for the insights detail screen are created
+ */
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

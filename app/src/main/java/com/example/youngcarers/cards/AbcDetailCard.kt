@@ -20,6 +20,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.youngcarers.data.api.models.Abc
 
+/**
+ * @param data abc data from abc model
+ * @param onClick onClick listener with given string
+ * Here the cards for the abc screen are created
+ */
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun AbcDetailCard(

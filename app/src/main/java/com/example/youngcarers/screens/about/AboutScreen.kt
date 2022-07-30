@@ -22,6 +22,9 @@ import com.example.youngcarers.ui.theme.colorBackground
 import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
+/**
+ * Generate the about page with title, body and metadata information
+ */
 
 @Composable
 fun AboutScreen() {

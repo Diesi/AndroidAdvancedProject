@@ -15,6 +15,11 @@ import androidx.compose.ui.unit.sp
 import com.example.youngcarers.R
 import com.example.youngcarers.ui.theme.colorDarkRed
 
+/**
+ * @param title title of the card
+ * Here the call number cards for the emergency screen are created
+ */
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EmergencyNumberCard(title: String) {

@@ -9,14 +9,18 @@ import androidx.navigation.navArgument
 import com.example.youngcarers.screens.DetailScreen
 import com.example.youngcarers.screens.InsightsDetailScreen
 
+/**
+ * Navigation controller, which selects the links and content on the individual pages
+ */
 
 @Composable
 fun Navigation(navController: NavHostController) {
 
+    // TODO: remove navController integrate this
     fun navigateToInsightDetail(questionIndex: Int) {
         navController.navigate(NavRoutes.InsightsDetail.route + "/$questionIndex")
     }
-
+    // TODO: remove navController integrate this
     fun navigateToAbcDetail(abcEntryName: String) {
         navController.navigate(NavRoutes.Detail.route + "/$abcEntryName")
     }

@@ -22,6 +22,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.youngcarers.NavRoutes
 import com.example.youngcarers.data.api.models.Category
 
+/**
+ * @param category category data from the category model
+ * @param navController navController for navigate to another page
+ * Here the category detail cards for the insights detail screen are created
+ */
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun CategoryDetailCard(
