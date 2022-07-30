@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">YoungCarers</string>
+    <string name="contentDescription">Forward</string>
 </resources>

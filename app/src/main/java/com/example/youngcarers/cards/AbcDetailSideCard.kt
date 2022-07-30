@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.BlendMode.Companion.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
@@ -18,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberAsyncImagePainter
 import com.example.youngcarers.R
 
 /**
@@ -39,6 +41,8 @@ fun AbcDetailSideCard(
 ) {
 
     val uriHandler = LocalUriHandler.current
+
+
     Card(
         modifier = Modifier
             .padding(10.dp)
@@ -53,35 +57,39 @@ fun AbcDetailSideCard(
     ) {
         Column()
         {
-            Row(
-                Modifier.padding(8.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.picture),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(width = 120.dp, height = 80.dp)
-                        .padding(8.dp)
-                        .clip(RoundedCornerShape(15.dp)),
-                    contentScale = ContentScale.Fit,
+            //TODO: dynamic image, not static,no size needed with an static image ?
+            Image(
+                painter = rememberAsyncImagePainter(image),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(width = 310.dp, height = 160.dp)
+                    .padding(bottom = 5.dp)
+                    .fillMaxWidth()
+                    .fillMaxHeight(),
+                contentScale = ContentScale.FillWidth,
 
-                    )
-                Text(
-                    text = header,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth(),
+
+
                 )
+            Text(
+                text = header,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .padding(start = 10.dp, bottom = 5.dp, end = 10.dp)
+                    .fillMaxWidth(),
+            )
 
-            }
+
             Text(
                 text = description,
+                color = androidx.compose.ui.graphics.Color.Gray,
+
                 style = MaterialTheme.typography.body2,
-                modifier = Modifier.padding(start = 30.dp, bottom = 15.dp, end = 30.dp)
+                modifier = Modifier.padding(start = 10.dp, bottom = 15.dp, end = 10.dp)
             )
+            // }
+
         }
     }
 }

@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.youngcarers.R
 import com.example.youngcarers.data.api.models.Abc
 
 /**
@@ -63,7 +64,7 @@ fun AbcDetailCard(
 
                 Icon(
                     imageVector = Icons.Filled.KeyboardArrowRight,
-                    contentDescription = "Forward",
+                    contentDescription = R.string.contentDescription.toString(),
                     modifier = Modifier.padding(end = 10.dp, top = 16.dp)
                 )
 
