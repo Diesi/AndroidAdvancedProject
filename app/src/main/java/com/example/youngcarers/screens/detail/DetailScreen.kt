@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -88,7 +89,7 @@ fun DetailScreen(
                             )
                         } else {
                             Text(
-                                R.string.detail_title.toString(),
+                                stringResource(R.string.detail_title),
                                 color = colorResource(id = R.color.yc_red_dark),
                                 fontSize = 35.sp,
                                 fontWeight = FontWeight.Bold,

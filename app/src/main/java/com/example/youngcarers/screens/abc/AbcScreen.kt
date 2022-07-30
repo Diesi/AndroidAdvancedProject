@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -45,7 +46,7 @@ fun AbcScreen(
             .testTag("abcScreen")
     ) {
         Text(
-            R.string.abc_title.toString(),
+            stringResource(R.string.abc_title),
             color =  colorResource(id = R.color.yc_red_dark),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
@@ -53,7 +54,7 @@ fun AbcScreen(
         )//TODO: backend api
 
         Text(
-            R.string.abc_body.toString(),
+            stringResource(R.string.abc_body),
             modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 40.dp, bottom = 20.dp)
         )//TODO: backend api
 

@@ -11,6 +11,8 @@ import com.example.youngcarers.ui.theme.YoungCarersTheme
 
 class MainActivity : ComponentActivity() {
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -27,6 +29,7 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     YoungCarersTheme {
+
 
         Scaffold(
             bottomBar = { BottomNavigationBar(navController) }

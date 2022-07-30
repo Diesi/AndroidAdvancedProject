@@ -47,6 +47,8 @@ fun InsightsDetailCard(
 
     val uriHandler = LocalUriHandler.current
 
+
+
     Card(
         modifier = Modifier
             .padding(10.dp)
@@ -74,16 +76,34 @@ fun InsightsDetailCard(
                 Modifier.padding(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    painter = rememberAsyncImagePainter(image),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(width = 120.dp, height = 80.dp)
-                        .padding(8.dp)
-                        .clip(RoundedCornerShape(15.dp)),
-                    contentScale = ContentScale.Fit,
+                if(image != "help"){
+                    Image(
 
-                    )
+                        painter = rememberAsyncImagePainter(image),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(width = 120.dp, height = 80.dp)
+                            .padding(8.dp)
+                            .clip(RoundedCornerShape(15.dp)),
+                        contentScale = ContentScale.Fit,
+
+                        )
+                }
+                else
+                {
+                    Image(
+
+                        painter = painterResource(id = R.drawable.question),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(width = 120.dp, height = 80.dp)
+                            .padding(8.dp)
+                            .clip(RoundedCornerShape(15.dp)),
+                        contentScale = ContentScale.Fit,
+
+                        )
+                }
+
                 Text(
                     text = header,
                     fontSize = 20.sp,

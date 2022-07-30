@@ -12,6 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -48,14 +49,14 @@ fun EmergencyScreen(
             item {
 
                 Text(
-                    R.string.emergency_title.toString(),
+                    stringResource(R.string.emergency_title),
                     color = colorResource(id = R.color.yc_red_dark),
                     fontSize = 35.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(start = 20.dp, top = 60.dp)
                 )
                 Text(
-                    R.string.emergency_quick_help.toString(),
+                    stringResource(R.string.emergency_quick_help),
                     modifier = Modifier.padding(
                         start = 20.dp,
                         top = 10.dp,
@@ -64,7 +65,7 @@ fun EmergencyScreen(
                     )
                 )
                 Text(
-                    R.string.emergency_intro_calls.toString(),
+                    stringResource(R.string.emergency_intro_calls),
                     modifier = Modifier
                         .padding(
                             top = 40.dp,
@@ -87,7 +88,7 @@ fun EmergencyScreen(
 
             item {
                 Text(
-                    R.string.emergency_title_preparation.toString(),
+                    stringResource(R.string.emergency_title_preparation),
                     modifier = Modifier
                         .padding(
                             top = 20.dp,
@@ -100,9 +101,9 @@ fun EmergencyScreen(
                 InsightsDetailCard(
                     emergency.header,
                     emergency.description,
-                    R.string.emergency_img_url.toString(),
+                    stringResource(R.string.emergency_img_url),
                     navController,
-                    R.string.emergency_url.toString(),
+                    stringResource(R.string.emergency_url),
                     index = 0
                 )
                 //TODO: add urls from api

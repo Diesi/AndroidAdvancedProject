@@ -12,6 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,7 +45,7 @@ fun AboutScreen() {
     ) {
 
         Text(
-            R.string.about_title.toString(),
+            stringResource(R.string.about_title),
             color = colorResource(id = R.color.yc_red_dark),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
@@ -52,7 +53,7 @@ fun AboutScreen() {
         ) //TODO: backend api
 
         Text(
-            R.string.about_body.toString(),
+            stringResource(R.string.about_body),
             modifier = Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)
         ) //TODO: backend api
 

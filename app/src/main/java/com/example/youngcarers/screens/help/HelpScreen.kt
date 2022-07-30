@@ -1,13 +1,14 @@
 package com.example.youngcarers
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -16,21 +17,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.youngcarers.cards.InsightsDetailCard
-import com.example.youngcarers.core.help_body
-import com.example.youngcarers.core.help_body_hint
-import com.example.youngcarers.core.help_title
-import com.example.youngcarers.core.helps
 import com.example.youngcarers.data.api.models.Insight
 import com.example.youngcarers.screens.help.HelpScreenViewModel
-import com.example.youngcarers.ui.theme.colorBackground
-import com.example.youngcarers.ui.theme.colorDarkRed
 import org.koin.androidx.compose.getViewModel
 
 /**
@@ -57,14 +53,14 @@ fun HelpScreen(
 
     ) {
         Text(
-            R.string.help_title.toString(),
+            stringResource(id = R.string.help_title),
             color = colorResource(id = R.color.yc_red_dark),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(start = 20.dp, top = 60.dp)
         )//TODO: txt from api
         Text(
-            R.string.help_body.toString(),
+            stringResource(R.string.help_body),
             modifier = Modifier.padding(
                 start = 20.dp,
                 top = 10.dp,
@@ -76,7 +72,7 @@ fun HelpScreen(
             InsightsDetailCard(
                 header = item.question,//part.question,
                 description = "",//item.text,//con.reference.title,
-                image = "n",//part.reference.previewImageUrl,//content.reference.previewImageUrl,
+                image = "help",//part.reference.previewImageUrl,//content.reference.previewImageUrl,
                 navController = navController,
                 url = "null",
                 index = index
@@ -84,7 +80,7 @@ fun HelpScreen(
 
         }
         Text(
-            R.string.help_body_hint.toString(),
+            stringResource(R.string.help_body_hint),
             modifier = Modifier
                 .padding(
                     top = 40.dp,
