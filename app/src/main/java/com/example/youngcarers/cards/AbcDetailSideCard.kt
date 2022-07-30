@@ -32,7 +32,7 @@ import coil.compose.rememberAsyncImagePainter
 fun AbcDetailSideCard(
     header: String,
     description: String,
-    image: Int,
+    image: String,
     url: String
 ) {
 
@@ -96,7 +96,7 @@ fun AbcDetailSideCardPreview() {
     AbcDetailSideCard(
         header = "Header",
         description = "Description",
-        image = 0,
+        image = "",
         url = "www.google.com"
     )
 }

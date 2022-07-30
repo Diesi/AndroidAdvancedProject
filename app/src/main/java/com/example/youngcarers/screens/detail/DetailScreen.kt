@@ -131,7 +131,7 @@ fun DetailScreen(
                                     AbcDetailSideCard(
                                         ref.title,
                                         ref.description,
-                                        detail.imageRes,
+                                        ref.previewImageUrl,
                                         ref.url
                                     )
                                 }//TODO: image
