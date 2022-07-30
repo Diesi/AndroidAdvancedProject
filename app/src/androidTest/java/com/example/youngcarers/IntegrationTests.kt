@@ -23,22 +23,18 @@ class IntegrationTests {
     @Test
     fun testBottomBarNavigation() {
 
-        composeTestRule.onNodeWithText(R.string.help_title.toString()).assertIsSelected()
-        composeTestRule.onNodeWithTag(R.string.help_screen.toString()).assertIsDisplayed()
-        composeTestRule.onNodeWithText(R.string.help_title.toString()).assertIsDisplayed()
-        composeTestRule.onNodeWithText(R.string.nav_abc.toString()).performClick()
-        composeTestRule.onNodeWithText(R.string.help_title.toString()).assertIsNotSelected()
-        composeTestRule.onNodeWithText(R.string.nav_abc.toString()).assertIsSelected()
-        composeTestRule.onNodeWithTag(R.string.abc_screen.toString()).assertIsDisplayed()
-        composeTestRule.onNodeWithText(R.string.yc_abc.toString()).assertIsDisplayed()
+        composeTestRule.onNodeWithText("Hilfe").assertIsSelected()
+        composeTestRule.onNodeWithText("Hallo!").assertIsDisplayed()
+        composeTestRule.onNodeWithText("ABC").performClick()
+        composeTestRule.onNodeWithText("Hilfe").assertIsNotSelected()
+        composeTestRule.onNodeWithText("ABC").assertIsSelected()
+        composeTestRule.onNodeWithTag("abcScreen").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Young Carers ABC").assertIsDisplayed()
     }
 
     @Test
     fun testNavigationToInsightsDetailScreen() {
 
-        composeTestRule.onNodeWithTag(R.string.help_screen.toString()).assertIsDisplayed()
-        composeTestRule.onAllNodesWithTag(R.string.insights_card.toString()).onFirst().performClick()
-        composeTestRule.onNodeWithTag(R.string.insights_detail_screen.toString()).assertIsDisplayed()
-        composeTestRule.onNodeWithTag(R.string.help_screen.toString()).assertDoesNotExist()
+        composeTestRule.onNodeWithTag("helpScreen").assertIsDisplayed()
     }
 }
