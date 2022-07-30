@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.youngcarers.NavRoutes
+import com.example.youngcarers.R
 import com.example.youngcarers.data.api.models.Category
 
 /**
@@ -55,7 +56,7 @@ fun CategoryDetailCard(
             )
             Icon(
                 imageVector = Icons.Filled.KeyboardArrowRight,
-                contentDescription = "Forward",
+                contentDescription = R.string.contentDescription.toString(),
                 modifier = Modifier.padding(end = 10.dp, top = 16.dp)
             )
         }

@@ -19,6 +19,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import coil.compose.rememberAsyncImagePainter
+import com.example.youngcarers.NavRoutes
 import com.example.youngcarers.R
 
 /**
@@ -37,7 +41,9 @@ fun InsightsDetailCard(
     description: String,
     image: Int,
     onClick: (questionIndex: Int) -> Unit,
-    url: String
+    url: String,
+    navController: NavHostController,
+    index: Int
 ) {
 
     val uriHandler = LocalUriHandler.current
@@ -53,7 +59,7 @@ fun InsightsDetailCard(
             if (url != "null") {
                 uriHandler.openUri(url)
             } else {
-                onClick(0)
+                navController.navigate(NavRoutes.InsightsDetail.route + "/$index")
             }
         },
         shape = MaterialTheme.shapes.medium,
@@ -70,7 +76,7 @@ fun InsightsDetailCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.picture),
+                    painter = rememberAsyncImagePainter(image),
                     contentDescription = null,
                     modifier = Modifier
                         .size(width = 120.dp, height = 80.dp)
@@ -105,6 +111,8 @@ fun InsightDetailCardPreview() {
         description = "Description",
         image = 0,
         onClick = {},
-        url = "www.google.com"
+        url = "www.google.com",
+        navController = rememberNavController(navigators = emptyArray()),
+        index = 0
     )
 }

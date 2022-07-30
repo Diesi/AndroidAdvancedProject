@@ -49,7 +49,7 @@ fun AbcScreen(
             .testTag("abcScreen")
     ) {
         Text(
-            abc_title,
+            R.string.abc_title.toString(),
             color = colorDarkRed,//colorResource(id = R.color.yc_red_dark),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
@@ -57,7 +57,7 @@ fun AbcScreen(
         )//TODO: backend api
 
         Text(
-            abc_body,
+            R.string.abc_body.toString(),
             modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 40.dp, bottom = 20.dp)
         )//TODO: backend api
 
@@ -66,14 +66,6 @@ fun AbcScreen(
         }
     }
 
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ABCScreenPreview() {
-    /*ABC_Screen(
-        navigateToDetail = {}
-    )*/
 }
 
 
